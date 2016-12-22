@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="blue-light">  
+    <ion-buttons left>
+      <button ion-button>
+      <ion-icon name="search"></ion-icon>
+    </button>
+    </ion-buttons>
+    <ion-title>My Trips</ion-title>
+    <ion-buttons right>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>  
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngIf="trips != undefined || trips != null">
+
+    <ion-toolbar color="blue-light">
+        <ion-title>Upcoming Trips</ion-title>
+    </ion-toolbar>
+    <ion-content class="sub-tabs">
+      <ion-tabs color="light" tabsPlacement="top">      
+        <ion-tab [root]="upcoming_driver" [rootParams]="trips" tabTitle="Driver"></ion-tab>
+        <ion-tab [root]="upcoming_rider" [rootParams]="trips" tabTitle="Rider"></ion-tab>
+      </ion-tabs>
+    </ion-content>
+
+    <ion-toolbar color="blue-light">
+        <ion-title>Completed Trips</ion-title>
+    </ion-toolbar>
+    <ion-content class="sub-tabs">    
+      <ion-tabs color="light" tabsPlacement="top">
+        <ion-tab [root]="completed_driver" [rootParams]="trips" tabTitle="Driver"></ion-tab>
+        <ion-tab [root]="completed_rider" [rootParams]="trips" tabTitle="Rider"></ion-tab>
+      </ion-tabs>    
+    </ion-content>
+
+  </div>
+</ion-content>

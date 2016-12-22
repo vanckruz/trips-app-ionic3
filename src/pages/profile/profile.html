@@ -1,0 +1,47 @@
+<!--
+  Generated template for the Profile page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+   <ion-toolbar color="blue-light">  
+    <ion-title>Profile</ion-title>
+    <ion-buttons end>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>    
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding [style.background]="'url(' + imgRandom + ')'">
+	<ion-card *ngIf="userProfile != undefined || userProfile != null">
+	
+ 		<div class="image_center">			
+			<img [src]="userProfile.picUser">    
+		</div>
+
+		<ion-card-content>
+
+			<h1>{{ userProfile.firstName }} {{ userProfile.lastName }}</h1>
+			<h2 *ngIf="userProfile.isDriverRole">Driver</h2>
+
+			<ion-toolbar color="blue-light">
+				<ion-title>Interest</ion-title>
+			</ion-toolbar>
+
+			<ion-item *ngFor="let activity of userProfile.activityInterests">
+			    <ion-avatar item-left>
+			      <img [src]="activity.pic" class="activity-icon">
+			    </ion-avatar>
+	            <p>{{ activity.name }}</p>
+			</ion-item>
+
+		</ion-card-content>
+		
+	</ion-card>
+</ion-content>

@@ -1,0 +1,23 @@
+<ion-menu side="right">
+  <ion-header>
+    <ion-toolbar color="blue-light">
+      <ion-title>Options</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content color="light">
+    <ion-list>
+      <button menuClose ion-item (click)="goToIntro()">
+        <ion-icon name="play" item-left></ion-icon>
+        ¿ How to work ?
+      </button>
+    </ion-list>      
+    <ion-list>
+      <button menuClose ion-item (click)="logout()">
+        <ion-icon name="log-out" item-left></ion-icon>
+        Log Out
+      </button>
+    </ion-list>      
+  </ion-content>
+</ion-menu>
+<ion-nav [root]="rootPage"></ion-nav>

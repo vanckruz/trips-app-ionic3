@@ -1,0 +1,43 @@
+<div class="super" [style.background]="'url(' + imgRandom + ')'">	
+
+	<ion-card>
+		
+	    <img src="assets/icon/RidjLogo.png" class="login-image"/>
+
+		<ion-card-content>
+		    <form>
+		       <ion-item>
+		        <ion-label floating>User</ion-label>
+		        <ion-input type="text" [(ngModel)]="email" name="email"></ion-input>
+		      </ion-item>
+		       <ion-item>
+		        <ion-label floating>Password</ion-label>
+		        <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+		      </ion-item>
+		    </form>
+			
+			<div class="box-buttons">
+				<div class="center">
+			    	<button ion-button color="blue-light" full (click)="getLogin(email, password)">
+			    		Login
+			    	</button>
+			    </div>
+<!-- 				<div class="center">
+			    	<button ion-button color="blue-dark" full>
+			    		<ion-icon name="logo-facebook"></ion-icon>&nbsp; Facebook
+			    	</button>
+			    </div> -->
+				<div class="center">
+			    	<button ion-button color="light" full color="orange">Sign up</button>
+			    </div>
+		    </div>
+		</ion-card-content>
+
+	</ion-card>
+
+	<ion-footer>
+		<button ion-button color="blue-light" full>
+			Explore trips &nbsp;<ion-icon name="compass" right></ion-icon>
+		</button>
+	</ion-footer>
+</div>

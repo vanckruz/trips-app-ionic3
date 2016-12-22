@@ -1,0 +1,17 @@
+<ion-content padding>
+	<div *ngIf="driver_trips != undefined || driver_trips != null ||  driver_trips.upcomingTripsDriver != undefined ||  driver_trips.upcomingTripsDriver != null">
+		<ion-grid>
+			<ion-row>
+				<ion-col width-50>Place</ion-col>
+				<ion-col width-50>Date</ion-col>
+			</ion-row>	
+			<ion-row *ngFor="let trip of driver_trips.upcomingTripsDriver">
+			    <ion-col width-50>{{ trip.place }}</ion-col>
+			    <ion-col width-50>{{ trip.date }}</ion-col>
+			</ion-row>		
+		</ion-grid>		
+	</div>
+	<div *ngIf="driver_trips == undefined || driver_trips == null || driver_trips.upcomingTripsDriver == undefined || driver_trips.upcomingTripsDriver == null">
+		No trips registered
+	</div>
+</ion-content>
