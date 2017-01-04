@@ -1,4 +1,4 @@
-<ion-menu side="right">
+<ion-menu side="right" [content]="mycontent">
   <ion-header>
     <ion-toolbar color="blue-light">
       <ion-title>Options</ion-title>
@@ -20,4 +20,4 @@
     </ion-list>      
   </ion-content>
 </ion-menu>
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-nav #mycontent [root]="rootPage"></ion-nav>

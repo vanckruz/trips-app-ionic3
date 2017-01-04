@@ -17,7 +17,7 @@ export class LoginPage{
 	user:any;
 	email:any;
 	password:any;
-    theming: Array<string> = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg","11.jpg","12.jpg","13.jpg","14.jpg"];
+    theming: Array<string> = ["1.jpg","2.jpg","3.jpg","4.jpg"];
     imgRandom: string = "assets/images/img_theming/1.jpg";
 
     constructor(public storage: Storage, public navCtrl: NavController, private toastCtrl: ToastController, public loading:LoadingController, private login: LoginServices) 
@@ -35,7 +35,8 @@ export class LoginPage{
 
     bgRamdon():void
     {
-        setInterval( () => this.imgRandom = "assets/images/img_theming/"+this.ramdonTheming(), 5000);
+        // setInterval( () => this.imgRandom = "assets/images/img_theming/"+this.ramdonTheming(), 5000);
+        this.imgRandom = "assets/images/img_theming/"+this.ramdonTheming();
     }	
 
 	toastMessage(message): any {

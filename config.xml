@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.ridjapp536045" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>ridj-app</name>
-  <description>An awesome Ionic/Cordova app.</description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
+  <name>Ridj</name>
+  <description>Is a rideshare program that connects people without direct or reliable transport to outdoor destinations with locals who have cars. www.ridj-it.com</description>
+  <author email="info@ridj-it.com" href="https://www.ridj-it.com/">Ridj Team</author>
   <content src="index.html"/>
   <access origin="*"/>
   <allow-intent href="http://*/*"/>

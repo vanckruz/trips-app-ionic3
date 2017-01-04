@@ -3,14 +3,15 @@ page-profile {
 	ion-content{
 		// background: linear-gradient(to bottom, rgba(0,162,231,1) 0%, rgba(0,162,231,1) 50%, rgba(241,241,241,1) 51%, rgba(241,241,241,1) 100%);	
 		background-repeat: no-repeat !important;
-		background-size: 100% 40% !important;
+		// background-size: 100% 40% !important;
+		background-size: cover !important;
 		background-atachment: fixed !important;
 		transition: .5s all;
 
 		ion-card
 		{
 			width: 90% !important;
-			margin: 35% auto !important;
+			margin: 20% auto !important;
 			height: auto;
 			background: transparent !important;
 			border: none !important;
