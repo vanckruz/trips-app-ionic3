@@ -22,7 +22,7 @@ export class IntroPage {
     ];
   }
 
-  back(){
+  pop(){
     this.navCtrl.pop();
   }  
 
