@@ -1,23 +1,73 @@
-import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { Platform, Nav, LoadingController, ToastController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
+
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-import { TabsPage } from '../pages/tabs/tabs';
+import { IntroPage } from '../pages/intro/intro';
 import { LoginPage } from '../pages/login/login';
+import { Footer } from '../pages/footer/footer';
+import { Profile } from '../pages/profile/profile';
+import { SearchTrips } from '../pages/search-trips/search-trips';
+import { Trips } from '../pages/trips/trips';
+import { DetailTrip } from '../pages/detail-trip/detail-trip';
+import { MyTrips } from '../pages/my-trips/my-trips';
+import { Privacy } from '../pages/privacy/privacy';
+import { Settings } from '../pages/settings/settings';
 
 
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: []
 })
 export class MyApp {
-  rootPage = LoginPage;
+  
+  @ViewChild(Nav) nav: Nav;
 
-  constructor(platform: Platform) {
+  rootPage:any = LoginPage;
+  introPage:any = IntroPage;
+  loginPage:any = LoginPage;
+  perfil:any = Profile;
+  searchTrips:any = SearchTrips;
+  footerPage:any = Footer;
+
+  pages:Array<{title:string,component:any}>;
+
+  constructor(platform: Platform, private storage: Storage, private toastCtrl: ToastController, private loading: LoadingController) {
+
+    this.pages = [
+     {title: "Login", component: LoginPage},
+     {title: "Intro", component: IntroPage}
+    ];
+
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       Splashscreen.hide();
     });
+
+    this.checkLogin();
   }
+
+  checkLogin(){
+    this.storage.get('user').then((user) => {
+      this.rootPage = (user) ? Footer : LoginPage;
+    });      
+  }
+
+  goToIntro(){
+    this.nav.push(IntroPage);
+  }
+
+  logout(){
+    this.storage.remove('user');
+    let loading = this.loading.create({
+      content: 'Please wait...'
+    });    
+    loading.present().then(() => {      
+      loading.dismiss().then( () => {
+        this.nav.setRoot(LoginPage);
+      } );
+    });
+  }  
+
 }
