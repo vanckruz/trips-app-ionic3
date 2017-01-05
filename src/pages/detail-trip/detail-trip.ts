@@ -1,22 +1,24 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
-/*
-  Generated class for the DetailTrip page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-detail-trip',
   templateUrl: 'detail-trip.html'
 })
 export class DetailTrip {
 
-  constructor(public navCtrl: NavController) {}
+	public trip: any;
 
-  ionViewDidLoad() {
-    console.log('Hello DetailTrip Page');
-  }
+	constructor(public navCtrl: NavController,	public params: NavParams, public storage: Storage){
+		this.trip = this.params.get("trip");
+	}
 
+	ionViewDidLoad(){
+		console.log('Hello DetailTrip Page');
+	}
+
+	letRide(){
+
+	}
 }

@@ -1,3 +1,20 @@
 page-detail-trip {
+	
+	.bg-details{
+		background: #f9f9f9;
+	}
 
+	div.imgDriver{
+		text-align:center;
+		img{
+			display:block;
+			border-radius: 50%;
+			width:60%;
+			margin: auto;
+		}
+	}
+
+	.col2{
+		font-size:.7em;
+	}
 }

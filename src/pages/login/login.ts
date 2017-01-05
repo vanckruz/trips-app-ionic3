@@ -50,8 +50,8 @@ export class LoginPage{
 	}    
 
 	getLogin(email, password){
-	// this.login.Auth("rik.ganguly@gmail.com", "7WwQ7Y4lmzAG5ZN").subscribe(
-	this.login.Auth(email, password).subscribe(
+	// this.login.Auth(email, password).subscribe(
+	this.login.Auth("rik.ganguly@gmail.com", "7WwQ7Y4lmzAG5ZN").subscribe(
 		  data => {
 		 
 			if(data.json().messageException == null){
