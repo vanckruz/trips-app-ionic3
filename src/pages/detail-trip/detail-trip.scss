@@ -16,5 +16,26 @@ page-detail-trip {
 
 	.col2{
 		font-size:.7em;
+		margin-left: -40px;
+		background: lavender;
 	}
+
+    #ridersList{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+    #ridersList{
+	    .itemRider{
+	        width: 28%;
+	        margin: 2%;
+	        img{
+	        	border-radius: 50%;
+	        }
+	        p{
+	        	text-align: center;
+	        }
+	    }	
+    } 
 }

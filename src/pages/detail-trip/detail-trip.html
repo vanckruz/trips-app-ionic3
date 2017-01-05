@@ -13,7 +13,7 @@
 		<div class="imgDriver">
 			<img [src]="trip.driverPic">
 			<ion-row>		
-				<ion-col with-100 text-center>{{ trip.driverFirstName }} {{ trip.driverLastName }}</ion-col>
+				<ion-col with-100 text-center><b>{{ trip.driverFirstName }} {{ trip.driverLastName }}</b></ion-col>
 			</ion-row>			
 		</div>
 		<hr>
@@ -82,14 +82,23 @@
 		</ion-grid>	
 
 		<ion-toolbar text-center><b>Riders</b></ion-toolbar>
-		<ion-list *ngFor="let rider of trip.ridersOfTrip">
+<!-- 		<ion-list *ngFor="let rider of trip.ridersOfTrip">
 		  <ion-item>
 		    <ion-avatar item-left>
 		      <img [src]="rider.urlPicRider">
 		    </ion-avatar>
 		    <h2>{{ rider.firstNameRider }} {{ rider.lastNameRider }}</h2>
 		  </ion-item>
-		</ion-list>
+		</ion-list> -->
+
+		<div id="ridersList">
+			<div class="itemRider" *ngFor="let rider of trip.ridersOfTrip">
+		     	<img [src]="rider.urlPicRider">
+		     	<p>
+					{{ rider.firstNameRider }} {{ rider.lastNameRider }}
+		     	</p>
+			</div>
+		</div>
 
 		<button ion-button color="blue-light" full (click)="letRide()">
 			Let's ride!

@@ -55,7 +55,7 @@ export class Trips {
 				"firstNameRider": "Antonio",
 				"lastNameRider": "Iacarino",
 				"urlPicRider": "http://images.ridj-it.com/pic_users/ari_iaccarino_gmail_com1983340727459394560.jpg"
-			},								
+			},					
 			{
 				"firstNameRider": "Rik",
 				"lastNameRider": "Ganguly",
