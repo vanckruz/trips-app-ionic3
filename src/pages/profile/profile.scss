@@ -50,6 +50,23 @@ page-profile {
 					height: 50px;
 					margin-right: 5px;
 				}
+			    #ridersList{
+			        display: flex;
+			        justify-content: center;
+			        flex-wrap: wrap;
+			        width: 100%;
+				    .itemRider{
+				        width: 28%;
+				        margin: 2%;
+				        img{
+				        	border-radius: 50%;
+				        	border: 1px solid #ccc;
+				        }
+				        p{
+				        	text-align: center;
+				        }
+				    }	
+			    } //end icons				
 			}
 		}
 

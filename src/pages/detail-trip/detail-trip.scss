@@ -8,16 +8,13 @@ page-detail-trip {
 		text-align:center;
 		img{
 			display:block;
-			border-radius: 50%;
-			width:60%;
-			margin: auto;
 		}
 	}
 
 	.col2{
 		font-size:.7em;
-		margin-left: -40px;
-		background: lavender;
+		margin-left: -150px;
+		background: #e9ebee;
 	}
 
     #ridersList{
@@ -25,8 +22,6 @@ page-detail-trip {
         justify-content: center;
         flex-wrap: wrap;
         width: 100%;
-    }
-    #ridersList{
 	    .itemRider{
 	        width: 28%;
 	        margin: 2%;

@@ -50,7 +50,7 @@
 			</ion-row>		
 
 			<ion-row>
-				<ion-col with-20><b>Available seats: </b></ion-col>
+				<ion-col with-20><b>Available <br>seats: </b></ion-col>
 				<ion-col with-80 text-left class="col2"> {{ trip.totalSeatsAvailable }}</ion-col>
 			</ion-row>		
 
@@ -65,7 +65,7 @@
 			</ion-row>		
 
 			<ion-row>
-				<ion-col with-20><b>Smoking friendly:</b></ion-col>
+				<ion-col with-20><b>Smoking <br>friendly:</b></ion-col>
 				<ion-col with-80 text-left class="col2">
 					<span *ngIf="trip.smokingFriendly">yes</span>
 					<span *ngIf="!trip.smokingFriendly">no</span>
@@ -73,7 +73,7 @@
 			</ion-row>		
 
 			<ion-row>
-				<ion-col with-20> <b>Music in the car:</b></ion-col>
+				<ion-col with-20> <b>Music in <br>the car:</b></ion-col>
 				<ion-col with-80 text-left class="col2"> 
 					<span *ngIf="trip.musicInCar">yes</span>
 					<span *ngIf="!trip.musicInCar">no</span>

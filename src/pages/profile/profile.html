@@ -7,7 +7,7 @@
 <ion-header>
 
    <ion-toolbar color="blue-light">  
-    <ion-title>Profile</ion-title>
+    <ion-title text-center>Profile</ion-title>
     <ion-buttons end>
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
@@ -30,16 +30,23 @@
 			<h1>{{ userProfile.firstName }} {{ userProfile.lastName }}</h1>
 			<h2 *ngIf="userProfile.isDriverRole">Driver</h2>
 
-			<ion-toolbar color="blue-light">
-				<ion-title>Interest</ion-title>
-			</ion-toolbar>
+			<ion-title text-center>Interest</ion-title>
 
-			<ion-item *ngFor="let activity of userProfile.activityInterests">
+<!-- 			<ion-item *ngFor="let activity of userProfile.activityInterests">
 			    <ion-avatar item-left>
 			      <img [src]="activity.pic" class="activity-icon">
 			    </ion-avatar>
 	            <p>{{ activity.name }}</p>
-			</ion-item>
+			</ion-item> -->
+
+			<div id="ridersList">
+				<div class="itemRider" *ngFor="let activity of userProfile.activityInterests">
+			     	<img [src]="activity.pic">
+			     	<p>
+						{{ activity.name }}
+			     	</p>
+				</div>
+			</div>
 
 		</ion-card-content>
 		
