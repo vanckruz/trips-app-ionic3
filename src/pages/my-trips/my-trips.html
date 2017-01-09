@@ -10,28 +10,106 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <div *ngIf="trips != undefined || trips != null">
 
-    <ion-toolbar>
+    <ion-toolbar color="light">
         <ion-title text-center>Upcoming Trips</ion-title>
     </ion-toolbar>
-    <ion-content class="sub-tabs">
-      <ion-tabs tabsPlacement="top">      
-        <ion-tab [root]="upcoming_driver" [rootParams]="trips" tabTitle="Driver"></ion-tab>
-        <ion-tab [root]="upcoming_rider" [rootParams]="trips" tabTitle="Rider"></ion-tab>
-      </ion-tabs>
-    </ion-content>
 
-    <ion-toolbar>
+    <div padding>
+      <ion-segment [(ngModel)]="upcoming_trips">
+        <ion-segment-button value="upcoming_driver">
+          Upcoming Driver
+        </ion-segment-button>
+        <ion-segment-button value="upcoming_rider">
+          Upcoming Rider
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+
+    <div [ngSwitch]="upcoming_trips">
+      <div *ngSwitchCase="'upcoming_driver'">
+        <ion-grid>
+          <ion-row>
+            <ion-col width-50>Place</ion-col>
+            <ion-col width-50>Date</ion-col>
+          </ion-row>  
+          <ion-row *ngFor="let trip of trips.upcomingTripsDriver">
+              <ion-col width-50>{{ trip.place }}</ion-col>
+              <ion-col width-50>{{ trip.date }}</ion-col>
+          </ion-row>    
+        </ion-grid>   
+        <div *ngIf="trips.upcomingTripsDriver == null">
+          No trips registered
+        </div>      
+      </div>
+
+      <div *ngSwitchCase="'upcoming_rider'">
+        <ion-grid>
+          <ion-row>
+            <ion-col width-50>Place</ion-col>
+            <ion-col width-50>Date</ion-col>
+          </ion-row>  
+          <ion-row *ngFor="let trip of trips.upcomingTripsRider">
+              <ion-col width-50>{{ trip.place }}</ion-col>
+              <ion-col width-50>{{ trip.date }}</ion-col>
+          </ion-row>    
+        </ion-grid>   
+        <div *ngIf="trips.upcomingTripsRider == null">
+          No trips registered
+        </div>      
+      </div>
+    </div>    
+
+
+    <ion-toolbar color="green" class="separator">
         <ion-title text-center>Completed Trips</ion-title>
     </ion-toolbar>
-    <ion-content class="sub-tabs">    
-      <ion-tabs tabsPlacement="top">
-        <ion-tab [root]="completed_driver" [rootParams]="trips" tabTitle="Driver"></ion-tab>
-        <ion-tab [root]="completed_rider" [rootParams]="trips" tabTitle="Rider"></ion-tab>
-      </ion-tabs>    
-    </ion-content>
+
+    <div padding>
+      <ion-segment [(ngModel)]="completed_trips">
+        <ion-segment-button value="completed_driver">
+          Completed Driver
+        </ion-segment-button>
+        <ion-segment-button value="completed_rider">
+          Completed Rider
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+    <div [ngSwitch]="completed_trips">
+
+      <div *ngSwitchCase="'completed_driver'">
+        <ion-grid>
+          <ion-row>
+            <ion-col width-50>Place</ion-col>
+            <ion-col width-50>Date</ion-col>
+          </ion-row>  
+          <ion-row *ngFor="let trip of trips.tripsCompletedDriver">
+              <ion-col width-50>{{ trip.place }}</ion-col>
+              <ion-col width-50>{{ trip.date }}</ion-col>
+          </ion-row>    
+        </ion-grid>   
+        <div *ngIf="trips.tripsCompletedDriver == null">
+          No trips registered
+        </div>      
+      </div>
+      <div *ngSwitchCase="'completed_rider'">
+        <ion-grid>
+          <ion-row>
+            <ion-col width-50>Place</ion-col>
+            <ion-col width-50>Date</ion-col>
+          </ion-row>  
+          <ion-row *ngFor="let trip of trips.tripsCompletedRider">
+              <ion-col width-50>{{ trip.place }}</ion-col>
+              <ion-col width-50>{{ trip.date }}</ion-col>
+          </ion-row>    
+        </ion-grid>   
+        <div *ngIf="trips.tripsCompletedRider == null">
+          No trips registered
+        </div>      
+      </div>
+    </div>     
 
   </div>
 </ion-content>

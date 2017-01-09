@@ -29,25 +29,34 @@ export class Footer {
   //Parametros
   user: any;
 
-  constructor(
-    public navCtrl: NavController, 
-    public params: NavParams, 
-    public storage: Storage,
-    public loading:LoadingController,
-    private profileService: ProfileServices
-    ) {
+  constructor(public navCtrl: NavController, public params: NavParams, public storage: Storage, public loading:LoadingController, private profileService: ProfileServices ) {
     
-    this.storage.set('user', JSON.stringify( this.params.get("user") ) ).then(() => {
-      console.log('Name has been set');
-    });    
+    this.storage.get('user').then((user) => {
+     
+     // if(user != null){
+
+     // console.log("esta lleno el string json",typeof JSON.parse(user));
+     // }else{
+       
+     // console.log("esta vacia esta cadena json",typeof JSON.parse(user));
+     // }
+      if(user == null){
+        
+        this.storage.set('user', JSON.stringify( this.params.get("user") ) ).then(() => {
+          console.log('Name has been set');
+        });    
+
+      }
+      
+    });  
 
   }  
 
-  ionViewDidLoad() {
-    this.storage.get('user').then((user) => {
-      console.log('User footer'+user);
-    });    
-  }
+  // ionViewDidLoad() {
+  //   this.storage.get('user').then((user) => {
+  //     console.log('User footer'+user);
+  //   });    
+  // }
 
   presentLoadingDefault() {
     let loading = this.loading.create({

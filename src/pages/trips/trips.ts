@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, PopoverController } from 'ionic-angular';
 import { DetailTrip } from '../detail-trip/detail-trip';
 
-/*
-  Generated class for the Trips page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-trips',
   templateUrl: 'trips.html'
@@ -240,7 +234,7 @@ export class Trips {
 	 }	 
 	];
 
-	constructor(public navCtrl: NavController) {}
+	constructor(public navCtrl: NavController, public popoverCtrl: PopoverController) {}
 
 	ionViewDidLoad() {
 		console.log('Hello Trips Page');
