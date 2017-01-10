@@ -3,7 +3,7 @@ import { NavController, ToastController, LoadingController } from 'ionic-angular
 import { Storage } from '@ionic/storage';
 
 import { IntroPage } from '../intro/intro';
-import { TabsPage } from '../tabs/tabs';
+import { Footer } from '../footer/footer';
 
 import { LoginServices } from '../../providers/login.services';
 
@@ -61,7 +61,7 @@ export class LoginPage{
 			    });    
 			    loading.present().then(() => {      
 			      loading.dismiss().then( () => {
-			        	this.navCtrl.setRoot(TabsPage, {
+			        	this.navCtrl.setRoot(Footer, {
 						    user: data.json()
 						});				
 			      } );

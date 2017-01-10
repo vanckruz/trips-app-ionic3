@@ -8,16 +8,11 @@ import { LoginPage } from '../pages/login/login';
 import { Footer } from '../pages/footer/footer';
 import { Profile } from '../pages/profile/profile';
 import { SearchTrips } from '../pages/search-trips/search-trips';
-import { Trips, SearchPopoverPage, OptionsOfSearchPopoverPage } from '../pages/trips/trips';
+import { Trips } from '../pages/trips/trips';
 import { DetailTrip } from '../pages/detail-trip/detail-trip';
 import { MyTrips } from '../pages/my-trips/my-trips';
 import { Privacy } from '../pages/privacy/privacy';
 import { Settings } from '../pages/settings/settings';
-
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
 
 @NgModule({
   declarations: [
@@ -28,17 +23,10 @@ import { TabsPage } from '../pages/tabs/tabs';
     Profile,
     SearchTrips,
     Trips,
-    SearchPopoverPage,
-    OptionsOfSearchPopoverPage,
     DetailTrip,
     MyTrips,
     Privacy,
-    Settings,
-    //Initial pages:
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    Settings
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -51,18 +39,11 @@ import { TabsPage } from '../pages/tabs/tabs';
     Footer,
     Profile,
     SearchTrips,
-    Trips,
-    SearchPopoverPage,
-    OptionsOfSearchPopoverPage,    
+    Trips,  
     DetailTrip,
     MyTrips,
     Privacy,
-    Settings,
-    //Initial pages:
-    AboutPage,
-    ContactPage,
-    HomePage,
-    TabsPage
+    Settings
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},Storage]
 })

@@ -34,17 +34,12 @@ export class Settings {
 
   logout(){
     this.storage.remove('user');
-    // const root = this.app.getRootNav();
-    // console.log(root);
-    // root.popToRoot();
     let loading = this.loading.create({
       content: 'Please wait...'
     });    
     loading.present().then(() => {      
       loading.dismiss().then( () => {
-          this.navCtrl.push(LoginPage);
-          // const root = this.app.getRootNav();
-          // root.popToRoot();
+          this.navCtrl.setRoot(LoginPage);
       } );
     });
   }  
