@@ -33,8 +33,7 @@ export class MyTrips {
 	{ 
 		this.storage.get('user').then(
 		(user) => {
-			this.myTrips.getMyTrips(JSON.parse(user).idUser).subscribe(data => this.trips = data);
-			console.log( this.trips);			
+			this.myTrips.getMyTrips(JSON.parse(user).idUser).subscribe(data => this.trips = data);		
 		});
 	}
 

@@ -31,21 +31,14 @@ export class MyApp {
   searchTrips:any = SearchTrips;
   footerPage:any = Footer;
 
-  pages:Array<{title:string,component:any}>;
-
   constructor(platform: Platform, private storage: Storage, private toastCtrl: ToastController, private loading: LoadingController) {
-
-    this.pages = [
-     {title: "Login", component: LoginPage},
-     {title: "Intro", component: IntroPage}
-    ];
 
     platform.ready().then(() => {
       StatusBar.styleDefault();
       Splashscreen.hide();
+      this.checkLogin();
     });
 
-    this.checkLogin();
   }
 
   checkLogin(){
