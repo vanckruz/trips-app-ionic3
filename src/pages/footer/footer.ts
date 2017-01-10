@@ -33,13 +33,6 @@ export class Footer {
     
     this.storage.get('user').then((user) => {
      
-     // if(user != null){
-
-     // console.log("esta lleno el string json",typeof JSON.parse(user));
-     // }else{
-       
-     // console.log("esta vacia esta cadena json",typeof JSON.parse(user));
-     // }
       if(user == null){
         
         this.storage.set('user', JSON.stringify( this.params.get("user") ) ).then(() => {
@@ -52,11 +45,7 @@ export class Footer {
 
   }  
 
-  // ionViewDidLoad() {
-  //   this.storage.get('user').then((user) => {
-  //     console.log('User footer'+user);
-  //   });    
-  // }
+  ionViewDidLoad() {}
 
   presentLoadingDefault() {
     let loading = this.loading.create({
@@ -64,30 +53,6 @@ export class Footer {
     });
     loading.present();
     setTimeout(() => { loading.dismiss(); }, 2000);
-  }
-
-  getTrips(){
-    
-  }
-
-  getMyTrips(){
-    
-  }
-
-  getProfile(){
-    
-    this.storage.get('user').then((user) => {
-
-      this.presentLoadingDefault();
-      this.profileService.getProfile("token", JSON.parse(user).idUser ).subscribe(
-        (data) => {
-
-          // this.navCtrl.setRoot(Profile,{profile:data});
-          this.navCtrl.push(Profile,{profile:data});
-
-      });      
-    });    
-
   }
 
 }
