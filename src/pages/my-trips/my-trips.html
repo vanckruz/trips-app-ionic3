@@ -13,11 +13,8 @@
 <ion-content>
   <div *ngIf="trips != undefined || trips != null">
 
-    <ion-toolbar color="light">
-        <ion-title text-center>Upcoming Trips</ion-title>
-    </ion-toolbar>
-
     <div padding>
+      <ion-title text-center>Upcoming Trips</ion-title><hr>
       <ion-segment [(ngModel)]="upcoming_trips">
         <ion-segment-button value="upcoming_driver">
           Upcoming Driver
@@ -62,12 +59,8 @@
       </div>
     </div>    
 
-
-    <ion-toolbar color="green" class="separator">
-        <ion-title text-center>Completed Trips</ion-title>
-    </ion-toolbar>
-
-    <div padding>
+    <div padding class="separator">
+      <ion-title text-center>Completed Trips</ion-title><hr>
       <ion-segment [(ngModel)]="completed_trips">
         <ion-segment-button value="completed_driver">
           Completed Driver

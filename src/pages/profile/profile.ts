@@ -33,18 +33,18 @@ export class Profile {
 
     ionViewWillEnter() 
     {
-        this.storage.get('user').then((user) => {
-            this.profile.getProfile("token",JSON.parse(user).idUser).subscribe( (data) => {
-                let loading = this.loading.create({
-                  content: 'Please wait...'
-                });    
-                loading.present().then(() => {      
-                  loading.dismiss().then( () => {
-                        this.userProfile = data;                    
-                  } );
-                });                
+        let loading = this.loading.create({
+          content: 'Please wait...'
+        });    
+        loading.present().then(() => {      
+            this.storage.get('user').then((user) => {
+                this.profile.getProfile("token",JSON.parse(user).idUser).subscribe( (data) => {
+                      loading.dismiss().then( () => {
+                            this.userProfile = data;                    
+                      } );
+                });
             });
-        });
+        });//Loading               
     }
 
     ionViewDidLoad() 

@@ -60,7 +60,7 @@ export class MyApp {
       loading.dismiss().then( () => {
         this.nav.setRoot(LoginPage);
       } );
-    });
+    });//Loading
   }   
 
 }

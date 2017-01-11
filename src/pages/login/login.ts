@@ -50,31 +50,31 @@ export class LoginPage{
 	}    
 
 	getLogin(email, password){
-	// this.login.Auth(email, password).subscribe(
-	this.login.Auth("rik.ganguly@gmail.com", "7WwQ7Y4lmzAG5ZN").subscribe(
-		  data => {
-		 
-			if(data.json().messageException == null){
-			
-			    let loading = this.loading.create({
-			      content: 'Please wait...'
-			    });    
-			    loading.present().then(() => {      
-			      loading.dismiss().then( () => {
-			        	this.navCtrl.setRoot(Footer, {
-						    user: data.json()
-						});				
-			      } );
-			    });				
+	    let loading = this.loading.create({
+	      content: 'Please wait...'
+	    });    
+	    loading.present().then(() => {      
+			// this.login.Auth(email, password).subscribe(
+			this.login.Auth("rik.ganguly@gmail.com", "7WwQ7Y4lmzAG5ZN").subscribe(
+			  data => {
+			 
+				if(data.json().messageException == null){
+				
+				      loading.dismiss().then( () => {
+				        	this.navCtrl.setRoot(Footer, {
+							    user: data.json()
+							});				
+				      } );
 
-			}else{
-				this.toastMessage(data.json().messageException).present();
-			}
-		      
-		  },
-		  err => console.error(err),
-		  () => console.log('Petición completed')
-		);
+				}else{
+					this.toastMessage(data.json().messageException).present();
+				}
+			      
+			  },
+			  err => console.error(err),
+			  () => console.log('Petición completed')
+			);//Auth
+		});//Loading			
 	}	
 
 	ionViewWillEnter() 
