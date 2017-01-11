@@ -1,11 +1,13 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController, PopoverController, NavParams, ModalController, ViewController } from 'ionic-angular';
+import { NavController, PopoverController, NavParams, ModalController, ViewController, LoadingController } from 'ionic-angular';
 import { DetailTrip } from '../detail-trip/detail-trip';
 import { SearchTrips } from '../search-trips/search-trips';
+import { SearchServices } from '../../providers/search.services';
 
 @Component({
   selector: 'page-trips',
-  templateUrl: 'trips.html'
+  templateUrl: 'trips.html',
+  providers: [SearchServices]
 })
 export class Trips {
 
@@ -235,7 +237,7 @@ export class Trips {
 	 }	 
 	];
 
-	constructor(public navCtrl: NavController, public popoverCtrl: PopoverController, public modalCtrl: ModalController, public viewCtrl: ViewController) {
+	constructor(public navCtrl: NavController, public popoverCtrl: PopoverController, public modalCtrl: ModalController, public viewCtrl: ViewController, public search: SearchServices, public loading: LoadingController) {
 
 	}
 
@@ -258,9 +260,24 @@ export class Trips {
 	    modal.present();
 
 	    modal.onDidDismiss((data: any) => {
-	      if (data) {
-	        console.log("data desde la vista disparadora. ",data);
-	      }
+
+			if(data.run) 
+			{
+				console.log("data desde la vista disparadora. ",data);
+		        let loading = this.loading.create({
+		          content: 'Please wait...'
+		        });    
+		        loading.present().then(() => {      
+	                this.search.search(data).subscribe( (data) => {
+	                      loading.dismiss().then( () => {
+	                            console.log(data);
+	                            // this.trips = data;                    
+	                      } );
+	                });
+		        });//Loading   			
+			}
+
+
 	    });	  
 	      
 	}	

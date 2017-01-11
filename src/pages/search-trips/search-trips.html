@@ -29,7 +29,7 @@
 			<!-- <ion-input type="date" name="destination"></ion-input>    -->
 			<ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="search.end"></ion-datetime> 	
 	    </ion-item>
-		<button ion-button color="blue-light" full>
+		<button ion-button color="blue-light" full (click)="dismiss(true)">
 			Search
 			&nbsp;<ion-icon name="search"></ion-icon>
 		</button>
