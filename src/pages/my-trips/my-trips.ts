@@ -11,21 +11,19 @@ import { MyTripsServices } from '../../providers/mytrips.services';
 export class MyTrips {
 
 	trips: any;
+	upcoming_trips: any = "upcoming_driver";
+	completed_trips: any = "completed_driver";
     	
 	constructor(public navCtrl: NavController,private myTrips: MyTripsServices, public storage: Storage, public params: NavParams, private loading: LoadingController){
 
 	}
 
 	ionViewDidLoad() {
-	console.log('Hello MyTrips Page');
+		console.log('Hello MyTrips Page');
 	}
 
 	ionViewWillEnter() 
 	{ 
-		// this.storage.get('user').then(
-		// (user) => {
-		// 	this.myTrips.getMyTrips(JSON.parse(user).idUser).subscribe(data => this.trips = data);		
-		// });
         let loading = this.loading.create({
           content: 'Please wait...'
         });    
@@ -33,7 +31,7 @@ export class MyTrips {
             this.storage.get('user').then((user) => {
                 this.myTrips.getMyTrips(JSON.parse(user).idUser).subscribe( (data) => {
                       loading.dismiss().then( () => {
-                            this.trips = data;                    
+                            this.trips = data;
                       } );
                 });
             });

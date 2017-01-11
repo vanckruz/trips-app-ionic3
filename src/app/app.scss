@@ -14,3 +14,82 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+//Widths
+._00{width:  0%;} ._01{width:  1%;} ._02{width:  2%;} ._03{width:  3%;} ._04{width:   4;} ._05{width:  5%;} ._06{width:  6%;} ._07{width:  7%;} ._08{width:  8%;} ._09{width:  9%;}
+._10{width: 10%;} ._11{width: 11%;} ._12{width: 12%;} ._13{width: 13%;} ._14{width: 14%;} ._15{width: 15%;} ._16{width: 16%;} ._17{width: 17%;} ._18{width: 18%;} ._19{width: 19%;}
+._20{width: 20%;} ._21{width: 21%;} ._22{width: 22%;} ._23{width: 23%;} ._24{width: 24%;} ._25{width: 25%;} ._26{width: 26%;} ._27{width: 27%;} ._28{width: 28%;} ._29{width: 29%;}
+._30{width: 30%;} ._31{width: 31%;} ._32{width: 32%;} ._33{width: 33%;} ._34{width: 34%;} ._35{width: 35%;} ._36{width: 36%;} ._37{width: 37%;} ._38{width: 38%;} ._39{width: 19%;}
+._40{width: 40%;} ._41{width: 41%;} ._42{width: 42%;} ._43{width: 43%;} ._44{width: 44%;} ._45{width: 45%;} ._46{width: 46%;} ._47{width: 47%;} ._48{width: 48%;} ._19{width: 49%;}
+._50{width: 50%;} ._51{width: 51%;} ._52{width: 52%;} ._53{width: 53%;} ._54{width: 54%;} ._55{width: 55%;} ._56{width: 56%;} ._57{width: 57%;} ._58{width: 58%;} ._59{width: 59%;}
+._60{width: 60%;} ._61{width: 61%;} ._62{width: 62%;} ._63{width: 63%;} ._64{width: 64%;} ._65{width: 65%;} ._66{width: 66%;} ._67{width: 67%;} ._68{width: 68%;} ._69{width: 69%;}
+._70{width: 70%;} ._71{width: 71%;} ._72{width: 72%;} ._73{width: 73%;} ._74{width: 74%;} ._75{width: 75%;} ._76{width: 76%;} ._77{width: 77%;} ._78{width: 78%;} ._79{width: 79%;}
+._80{width: 80%;} ._81{width: 81%;} ._82{width: 82%;} ._83{width: 83%;} ._84{width: 84%;} ._85{width: 85%;} ._86{width: 86%;} ._87{width: 87%;} ._88{width: 88%;} ._89{width: 89%;}
+._90{width: 90%;} ._91{width: 91%;} ._92{width: 92%;} ._93{width: 93%;} ._94{width: 94%;} ._95{width: 95%;} ._96{width: 96%;} ._97{width: 97%;} ._98{width: 98%;} ._99{width: 99%;}
+._100{width: 100%;}
+.center, .toolbar-title{
+	text-align:center !important;
+}
+
+
+//Inputs
+textarea{
+	resize: none;
+}
+
+
+//Generals
+.header_primary{
+	background: #3388CC;
+	color: #FFF;
+	padding: .3em;
+	text-align: center;
+}
+
+/***Settigns***/
+.sombra_1{box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);}
+.sombra_2{box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);}
+.sombra_3{box-shadow: 0 12px 15px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);}
+.sombra_4{box-shadow: 0 16px 28px 0 rgba(0,0,0,0.22),0 25px 55px 0 rgba(0,0,0,0.21);}
+.sombra_5{box-shadow: 0 27px 24px 0 rgba(0,0,0,0.2),0 40px 77px 0 rgba(0,0,0,0.22);}
+
+#generar_code{width: 160px !important;}
+#generar_code i{position: static !important;}
+a.hashtag{margin: 5px;}
+/***Clases generales***/
+.block{display: block;}
+.oculto{display: none;}
+.overflow-h{overflow: hidden;}
+.left{float: left;}
+.right{float: right;}
+
+/***Backgounds***/
+.back_gray{
+	background: #CCC;
+}
+/***Backgounds***/
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.alert-info{
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
+}
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}
+.alert-warning {
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
+}
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}

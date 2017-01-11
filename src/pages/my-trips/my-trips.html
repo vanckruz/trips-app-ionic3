@@ -37,7 +37,7 @@
               <ion-col width-50>{{ trip.date }}</ion-col>
           </ion-row>    
         </ion-grid>   
-        <div *ngIf="trips.upcomingTripsDriver == []">
+        <div *ngIf="!trips.upcomingTripsDriver.length" class="alert alert-info center">
           No trips registered
         </div>      
       </div>
@@ -53,7 +53,7 @@
               <ion-col width-50>{{ trip.date }}</ion-col>
           </ion-row>    
         </ion-grid>   
-        <div *ngIf="trips.upcomingTripsRider == null">
+        <div *ngIf="!trips.upcomingTripsRider.length" class="alert alert-info center">
           No trips registered
         </div>      
       </div>
@@ -83,7 +83,7 @@
               <ion-col width-50>{{ trip.date }}</ion-col>
           </ion-row>    
         </ion-grid>   
-        <div *ngIf="trips.tripsCompletedDriver == null">
+        <div *ngIf="!trips.tripsCompletedDriver.length" class="alert alert-info center">
           No trips registered
         </div>      
       </div>
@@ -98,7 +98,7 @@
               <ion-col width-50>{{ trip.date }}</ion-col>
           </ion-row>    
         </ion-grid>   
-        <div *ngIf="trips.tripsCompletedRider == null">
+        <div *ngIf="!trips.tripsCompletedRider.length" class="alert alert-info center">
           No trips registered
         </div>      
       </div>
