@@ -1,17 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NavController, PopoverController, NavParams } from 'ionic-angular';
+import { NavController, PopoverController, NavParams, ModalController, ViewController } from 'ionic-angular';
 import { DetailTrip } from '../detail-trip/detail-trip';
-
-
-// @Component({
-
-// })
-// export class ClassName {
-	
-// 	constructor() {
-// 		// code...
-// 	}
-// }
+import { SearchTrips } from '../search-trips/search-trips';
 
 @Component({
   selector: 'page-trips',
@@ -245,20 +235,33 @@ export class Trips {
 	 }	 
 	];
 
-	constructor(public navCtrl: NavController, public popoverCtrl: PopoverController) {}
+	constructor(public navCtrl: NavController, public popoverCtrl: PopoverController, public modalCtrl: ModalController, public viewCtrl: ViewController) {
 
-	ionViewDidLoad() {
+	}
+
+	ionViewDidLoad() 
+	{
 		console.log('Hello Trips Page');
 	}
 
-	detailTrip(trip){
+	detailTrip(trip)
+	{
 		this.navCtrl.push(DetailTrip,{
 			"trip":trip
 		});
 	}
 
-	showSearch(ev) {
+	showSearchModal(ev)
+	{
+	   
+	    let modal = this.modalCtrl.create(SearchTrips);
+	    modal.present();
 
+	    modal.onDidDismiss((data: any) => {
+	      if (data) {
+	        console.log("data desde la vista disparadora. ",data);
+	      }
+	    });	  
+	      
 	}	
-
 }

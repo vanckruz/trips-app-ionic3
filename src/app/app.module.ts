@@ -8,6 +8,7 @@ import { LoginPage } from '../pages/login/login';
 import { Footer } from '../pages/footer/footer';
 import { Profile } from '../pages/profile/profile';
 import { SearchTrips } from '../pages/search-trips/search-trips';
+import { OptionsSearchTrips } from '../pages/options-search-trips/options-search-trips';
 import { Trips } from '../pages/trips/trips';
 import { DetailTrip } from '../pages/detail-trip/detail-trip';
 import { MyTrips } from '../pages/my-trips/my-trips';
@@ -21,8 +22,9 @@ import { Settings } from '../pages/settings/settings';
     LoginPage,
     Footer,
     Profile,
-    SearchTrips,
     Trips,
+    SearchTrips,
+    OptionsSearchTrips,
     DetailTrip,
     MyTrips,
     Privacy,
@@ -38,8 +40,9 @@ import { Settings } from '../pages/settings/settings';
     LoginPage,
     Footer,
     Profile,
-    SearchTrips,
     Trips,  
+    SearchTrips,
+    OptionsSearchTrips,
     DetailTrip,
     MyTrips,
     Privacy,

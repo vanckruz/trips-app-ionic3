@@ -1,43 +1,39 @@
-<!--
-  Generated template for the SearchTrips page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="blue-light">
+    <ion-title>Search Trips</ion-title>
     <ion-buttons start>
-      <button ion-button color="primary">
-        <ion-icon name="search"></ion-icon>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
       </button>
-    </ion-buttons>
-    <ion-title>Trips</ion-title>
+    </ion-buttons>    
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
 
-	<ion-card>
-	  <ion-card-header class="back_gray">
-	    <b class="left"> Viaje 1 </b>
-	    <ion-buttons end>
-		    <button ion-button color="light">
-			    <ion-icon name="arrow-forward"></ion-icon>
-			</button>
-		</ion-buttons>
-	  </ion-card-header>
-	  <ion-card-content>
-			<ion-item>
-			    <p>Pickup time</p>
-			    <p>2016/11/05 -10:00am</p>
-			    <p>Drop off</p>
-			    <p>2016/11/05 -5:00pm</p>
-				<ion-thumbnail item-right>	
-					<img src="assets/images/jhonpapa.jpg">
-				</ion-thumbnail>
-			</ion-item>	    
-	  </ion-card-content>
-	</ion-card>
+	<div class="box">
+		
+		<ion-label>Ridj-it: Carpool your way to adventure!</ion-label>
+
+	   	<ion-item>
+			<ion-label stacked>Destination</ion-label>
+			<ion-input type="text" name="destination" [(ngModel)]="search.destination"></ion-input>
+	    </ion-item>
+	    <ion-item>
+			<ion-label stacked>Start Date</ion-label>
+			<!-- <ion-input type="date" name="destination"></ion-input>	 -->
+			<ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="search.start"></ion-datetime>    	
+	    </ion-item>
+	   	<ion-item>
+			<ion-label stacked>End Date</ion-label>
+			<!-- <ion-input type="date" name="destination"></ion-input>    -->
+			<ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="search.end"></ion-datetime> 	
+	    </ion-item>
+		<button ion-button color="blue-light" full>
+			Search
+			&nbsp;<ion-icon name="search"></ion-icon>
+		</button>
+
+	</div>
 
 </ion-content>
