@@ -3,7 +3,8 @@ import { Http,Headers,RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
-import {Observable} from "rxjs";
+import { Observable } from 'rxjs';
+import { config } from '../config/config';
 
 @Injectable()
 export class LoginServices{
@@ -25,7 +26,7 @@ export class LoginServices{
 		// TODO: Encode the values using encodeURIComponent().
 		let body = 'email=' + email + '&password=' + password;
 
-		let user = this.http.post('http://qa.ridj-it.com/ridjit-web/app/API/login', body, options);
+		let user = this.http.post(config.routes.login, body, options);
 
 		return user;
 	}

@@ -3,7 +3,8 @@ import { Http,Headers,RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
-import {Observable} from "rxjs";
+import { Observable } from 'rxjs';
+import { config } from '../config/config';
 
 @Injectable()
 export class MyTripsServices{
@@ -17,7 +18,7 @@ export class MyTripsServices{
 	}
 
 	getMyTrips(idUser){
-	    return this.http.get('http://qa.ridj-it.com/ridjit-web/app/API/myTrips/'+idUser).map(res => res.json());
+	    return this.http.get(config.routes.myTrips+idUser).map(res => res.json());
 	}
 
 }

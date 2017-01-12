@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { Http,Headers,RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import 'rxjs/Rx';
-import {Observable} from "rxjs";
+import { Observable } from 'rxjs';
+import { config } from '../config/config';
 
 @Injectable()
 export class ProfileServices{
@@ -29,7 +29,7 @@ export class ProfileServices{
 
 		// let user = this.http.post('http://qa.ridj-it.com/ridjit-web/app/API/profileUser', body, options).map(res => res.json());		
 
-	    return this.http.post('http://qa.ridj-it.com/ridjit-web/app/API/profileUser', body, options).map(res => res.json());
+	    return this.http.post(config.routes.profile, body, options).map(res => res.json());
 	}
 
 }

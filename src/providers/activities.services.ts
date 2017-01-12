@@ -3,7 +3,8 @@ import { Http,Headers,RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
-import {Observable} from "rxjs";
+import { Observable } from 'rxjs';
+import { config } from '../config/config';
 
 @Injectable()
 export class ActivitisServices{
@@ -17,7 +18,7 @@ export class ActivitisServices{
 	}
 
 	get(){
-	    return this.http.get('http://p.ridj-it.com/app/activities').map(res => res.json());
+	    return this.http.get(config.routes.activities).map(res => res.json());
 	}
 
 }
