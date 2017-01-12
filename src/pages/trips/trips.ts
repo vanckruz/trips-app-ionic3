@@ -2,16 +2,19 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, PopoverController, NavParams, ModalController, ViewController, LoadingController } from 'ionic-angular';
 import { DetailTrip } from '../detail-trip/detail-trip';
 import { SearchTrips } from '../search-trips/search-trips';
+import { FilterTrips } from '../filter-trips/filter-trips';
 import { SearchServices } from '../../providers/search.services';
+import { ActivitisServices } from '../../providers/activities.services';
 
 @Component({
   selector: 'page-trips',
   templateUrl: 'trips.html',
-  providers: [SearchServices]
+  providers: [SearchServices, ActivitisServices]
 })
 export class Trips {
 
-	public trips: any = [
+	activities: Array<any>;
+	trips: any = [
 	 {
 	   "id": 10,
 	   "carType": "Sedan",
@@ -237,13 +240,20 @@ export class Trips {
 	 }	 
 	];
 
-	constructor(public navCtrl: NavController, public popoverCtrl: PopoverController, public modalCtrl: ModalController, public viewCtrl: ViewController, public search: SearchServices, public loading: LoadingController) {
-
+	constructor(public navCtrl: NavController, public popoverCtrl: PopoverController, public modalCtrl: ModalController, public viewCtrl: ViewController, public search: SearchServices,public activitiesProvider: ActivitisServices, public loading: LoadingController) {
+		this.getActivities();
 	}
 
 	ionViewDidLoad() 
 	{
-		console.log('Hello Trips Page');
+	}
+
+	getActivities(){
+		this.activitiesProvider.get()
+		.subscribe( (data) => {
+			this.activities = data;
+			console.log(this.activities)
+	    });
 	}
 
 	detailTrip(trip)
@@ -281,4 +291,29 @@ export class Trips {
 	    });	  
 	      
 	}	
+
+	showFiltersModal(ev)
+	{
+	   
+	    let modal = this.modalCtrl.create(FilterTrips,{params: this.activities});
+	    modal.present();
+
+	    modal.onDidDismiss((data: any) => {
+
+			if(data.run) 
+			{
+				console.log("data desde la vista disparadora. ",data);
+		        
+		        // let loading = this.loading.create({
+		        //   content: 'Please wait...'
+		        // });   
+
+		        // loading.present().then(() => {      
+
+		        // });//Loading   			
+			}
+
+
+	    });	 
+	}
 }
