@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { NavController, ViewController, NavParams } from 'ionic-angular';
 
-interface Search{
+interface Search<T>{
 	destination: string;
 	start: string;
 	end: string;
 	run?: boolean;
-	activities: Array<any>;
+	activities: Array<T>;
 }
 
 @Component({
@@ -15,13 +15,13 @@ interface Search{
 })
 export class SearchTrips {
   
-	search: Search = {
-		destination: "",
-	start: "",
-	end: "",
-	activities: []
-	}
-	activities: Array<any>;
+	search: Search<string> = {
+			destination: "",
+			start: "",
+			end: "",
+			activities: []
+		}
+	activities: Array<string>;
 
 
  	constructor(public navCtrl: NavController, public viewCtrl: ViewController, public navParams: NavParams)
