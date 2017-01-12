@@ -266,7 +266,7 @@ export class Trips {
 	showSearchModal(ev)
 	{
 	   
-	    let modal = this.modalCtrl.create(SearchTrips);
+	    let modal = this.modalCtrl.create(SearchTrips,{params: this.activities});
 	    modal.present();
 
 	    modal.onDidDismiss((data: any) => {

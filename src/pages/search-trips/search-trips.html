@@ -29,6 +29,15 @@
 			<!-- <ion-input type="date" name="destination"></ion-input>    -->
 			<ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="search.end"></ion-datetime> 	
 	    </ion-item>
+	    <ion-item>
+	    	<ion-label stacked>Activities</ion-label>
+	    	<ion-select [(ngModel)]="search.activities" multiple="true">
+	    		<ion-option [value]="act.cod" *ngFor="let act of activities">
+	    			{{ act.name }}
+	    		</ion-option>
+	    	</ion-select>
+	    </ion-item>
+
 		<button ion-button color="blue-light" full (click)="dismiss(true)">
 			Search
 			&nbsp;<ion-icon name="search"></ion-icon>

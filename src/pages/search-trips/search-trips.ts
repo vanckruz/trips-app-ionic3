@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { NavController, ViewController } from 'ionic-angular';
+import { NavController, ViewController, NavParams } from 'ionic-angular';
 
 interface Search{
 	destination: string;
 	start: string;
 	end: string;
 	run?: boolean;
+	activities: Array<any>;
 }
 
 @Component({
@@ -14,18 +15,24 @@ interface Search{
 })
 export class SearchTrips {
   
-  search: Search = {
-  	destination: "",
-    start: "",
-    end: ""
-  }
+	search: Search = {
+		destination: "",
+	start: "",
+	end: "",
+	activities: []
+	}
+	activities: Array<any>;
 
-  constructor(public navCtrl: NavController, public viewCtrl: ViewController) {}
+
+ 	constructor(public navCtrl: NavController, public viewCtrl: ViewController, public navParams: NavParams)
+ 	{
+		this.activities = navParams.get("params");		
+ 	}
 
 	ionViewDidLoad() 
 	{
 		console.log('Hello SearchTrips Page');
-	}
+	}	
 
 	private dismiss(run=false) 
 	{
