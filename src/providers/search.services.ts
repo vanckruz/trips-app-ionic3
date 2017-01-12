@@ -3,7 +3,8 @@ import { Http,Headers,RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
-import {Observable} from "rxjs";
+import { Observable } from 'rxjs';
+import { config } from '../config/config';
 
 @Injectable()
 export class SearchServices{
@@ -17,7 +18,7 @@ export class SearchServices{
 	}
 
 	search(data){
-	    return this.http.post('http://p.ridj-it.com/app/search',data).map(res => res.json());
+	    return this.http.post(config.routes.search,data).map(res => res.json());
 	}
 
 }
