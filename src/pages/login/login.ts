@@ -4,6 +4,7 @@ import { Storage } from '@ionic/storage';
 
 import { IntroPage } from '../intro/intro';
 import { Footer } from '../footer/footer';
+import { SignupPage } from '../signup/signup';
 import { TripsGuestPage } from '../trips-guest/trips-guest';
 
 import { LoginServices } from '../../providers/login.services';
@@ -82,6 +83,10 @@ export class LoginPage{
 	ionViewWillEnter() 
 	{
 
+	}
+
+	goSingup(){
+	    this.navCtrl.setRoot(SignupPage);	
 	}
 
 	exploretrips(){
