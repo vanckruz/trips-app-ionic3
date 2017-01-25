@@ -14,6 +14,7 @@ import { DetailTrip } from '../pages/detail-trip/detail-trip';
 import { MyTrips } from '../pages/my-trips/my-trips';
 import { Privacy } from '../pages/privacy/privacy';
 import { Settings } from '../pages/settings/settings';
+import { TripsGuestPage } from '../pages/trips-guest/trips-guest';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { Settings } from '../pages/settings/settings';
     DetailTrip,
     MyTrips,
     Privacy,
-    Settings
+    Settings,
+    TripsGuestPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -46,7 +48,8 @@ import { Settings } from '../pages/settings/settings';
     DetailTrip,
     MyTrips,
     Privacy,
-    Settings
+    Settings,
+    TripsGuestPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},Storage]
 })

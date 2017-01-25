@@ -4,6 +4,7 @@ import { Storage } from '@ionic/storage';
 
 import { IntroPage } from '../intro/intro';
 import { Footer } from '../footer/footer';
+import { TripsGuestPage } from '../trips-guest/trips-guest';
 
 import { LoginServices } from '../../providers/login.services';
 
@@ -55,7 +56,8 @@ export class LoginPage{
 	    });    
 	    loading.present().then(() => {      
 			// this.login.Auth(email, password).subscribe(
-			this.login.Auth("rik.ganguly@gmail.com", "7WwQ7Y4lmzAG5ZN").subscribe(
+			// this.login.Auth("rik.ganguly@gmail.com", "7WwQ7Y4lmzAG5ZN").subscribe(
+			this.login.Auth("info@ridj-it.com", "12345678").subscribe(
 			  data => {
 			 
 				if(data.json().messageException == null){
@@ -80,5 +82,9 @@ export class LoginPage{
 	ionViewWillEnter() 
 	{
 
+	}
+
+	exploretrips(){
+	    this.navCtrl.setRoot(TripsGuestPage);	
 	}
 }

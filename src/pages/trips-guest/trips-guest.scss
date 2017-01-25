@@ -1,0 +1,24 @@
+page-trips-guest {
+	
+	ion-content{
+		background: #f9f9f9 !important;
+	}
+
+	ion-card{
+		ion-card-header.header-card{
+			background: #ccc !important;
+			color: rgba(0,0,0,0.9) !important;
+		}
+	}
+
+	p.aTop{
+		margin-top: -10px !important;
+	}
+
+	p.slideName{
+		font-size: 1em;
+		line-height: 2em;
+		text-transform: uppercase;
+		text-align: center;
+	}
+}
