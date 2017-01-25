@@ -14,6 +14,7 @@ import { DetailTrip } from '../pages/detail-trip/detail-trip';
 import { MyTrips } from '../pages/my-trips/my-trips';
 import { Privacy } from '../pages/privacy/privacy';
 import { Settings } from '../pages/settings/settings';
+import { PostTripPage } from '../pages/post-trip/post-trip';
 
 
 @Component({
@@ -24,7 +25,8 @@ export class MyApp {
   
   @ViewChild(Nav) nav: Nav;
 
-  rootPage:any = LoginPage;
+  //rootPage:any = LoginPage;
+  rootPage:any = PostTripPage;
   introPage:any = IntroPage;
   loginPage:any = LoginPage;
   perfil:any = Profile;
@@ -36,7 +38,7 @@ export class MyApp {
     platform.ready().then(() => {
       StatusBar.styleDefault();
       Splashscreen.hide();
-      this.checkLogin();
+      //this.checkLogin();
     });
 
   }
