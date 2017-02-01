@@ -1,56 +1,77 @@
 <ion-header>
-
   <ion-navbar color="blue-light">
     <ion-title>Post Trip</ion-title>
   </ion-navbar>
-
 </ion-header>
+<ion-content>
+<p></p>
+  <ion-slides #postTripSlider pager>
+    <ion-slide>
+      <form [formGroup]="slideOneForm">
+        <ion-item>
+          <ion-label stacked>Destination*</ion-label>
+          <ion-input type="text" formControlName="destination"></ion-input>
+        </ion-item>
 
-
-<ion-content padding>
-      <ion-item>
-        <ion-label stacked>Destination**</ion-label>
-        <ion-input type="text" name="destination"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label stacked>Activities*</ion-label>
-        <ion-select [(ngModel)]="tripData.activities" multiple="true" *ngIf="activities">
-          <ion-option [value]="act.cod" *ngFor="let act of activities" >
+        <ion-item>
+          <ion-label stacked>Activities*</ion-label>
+          <ion-select  multiple="true" *ngIf="activities" formControlName="activities">
+            <ion-option [value]="act.cod" *ngFor="let act of activities">
             {{ act.name }}
-          </ion-option>
-        </ion-select>
-      </ion-item> 
-      <ion-list radio-group [(ngModel)]="tripData.difficulty">
-        <ion-list-header>
-          Difficulty Hiking*
-        </ion-list-header>
-        <ion-item>
-          <ion-label>Easy</ion-label>
-          <ion-radio value="easy"></ion-radio>
+            </ion-option>
+          </ion-select>
         </ion-item>
+
+        <ion-list radio-group formControlName="difficulty">
+          <ion-list-header>
+            Difficulty Hiking*
+          </ion-list-header>
+          <ion-item>
+            <ion-label>Easy</ion-label>
+            <ion-radio value="easy"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Moderate</ion-label>
+            <ion-radio value="moderate"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label>Difficulty</ion-label>
+            <ion-radio value="difficulty"></ion-radio>
+          </ion-item>
+        </ion-list>
+
         <ion-item>
-          <ion-label>Moderate</ion-label>
-          <ion-radio value="moderate"></ion-radio>
+          <ion-label stacked>Activity Description*</ion-label>
+          <ion-textarea name="description" formControlName="description"></ion-textarea>
         </ion-item>
+       
         <ion-item>
-          <ion-label>Difficulty</ion-label>
-          <ion-radio value="difficulty"></ion-radio>
-        </ion-item>        
-      </ion-list>
-
-      <ion-item>
-        <ion-label stacked>Activity Description*</ion-label>
-        <ion-input type="text" name="description"></ion-input>
-      </ion-item>    
-
-      <ion-item>
           Duration*
-      </ion-item>
-      <ion-item>            
-        <ion-range min="1" max="24" [(ngModel)]="tripData.duration" color="blue-light">
-          <ion-label range-left>1</ion-label>
-          <ion-label range-right>24</ion-label>
-        </ion-range>
-      </ion-item>
+        </ion-item>
+        <ion-item>
+          <ion-range min="1" max="24" color="blue-light" formControlName="duration">
+            <ion-label range-left>1</ion-label>
+            <ion-label range-right>24</ion-label>
+          </ion-range>
+        </ion-item>
 
+        <ion-buttons>
+          <button ion-button icon-right (click)="next()">Next <ion-icon name="arrow-forward"></ion-icon></button>
+        </ion-buttons>          
+      </form>
+    </ion-slide>
+
+    <ion-slide>
+      <form>
+
+
+        <ion-buttons>
+          <button ion-button icon-left (click)="prev()"><ion-icon name="arrow-back"></ion-icon> Prev</button>
+        </ion-buttons> 
+        <button ion-button full color="secondary"  (click)="save()">
+          Save
+        </button>
+      </form>
+    </ion-slide>
+  </ion-slides>
 </ion-content>

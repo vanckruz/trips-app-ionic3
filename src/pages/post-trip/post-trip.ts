@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController, NavParams } from 'ionic-angular';
 import { ActivitisServices } from '../../providers/activities.services';
 
@@ -10,29 +11,55 @@ import { ActivitisServices } from '../../providers/activities.services';
 })
 export class PostTripPage {
 
-  activities: Array<any>;
+    @ViewChild('postTripSlider') postTripSlider: any;
+    slideOneForm: FormGroup;
+    slideTwoForm: FormGroup;
+    activities: Array<any>;
 
-  tripData: any =  {
-			destination: "",
-      difficulty: "",
-      duration: "",
-			activities: []
-		};
+    tripData: any =  {
+    		destination: "",
+        difficulty: "",
+        duration: "",
+    		activities: []
+    	};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public activitiesProvider: ActivitisServices) {
-    		this.getActivities();
-  }
+    constructor(public navCtrl: NavController, public navParams: NavParams, public activitiesProvider: ActivitisServices, public formBuilder: FormBuilder) {
+      this.initForms();
+      this.getActivities();
+    }
 
-	getActivities(){
-		this.activitiesProvider.get()
-		.subscribe( (data) => {
-			this.activities = data;
-			console.log(this.activities)
-	    });
-	}  
+    initForms(){
+      this.slideOneForm = this.formBuilder.group({
+          destination: ['', Validators.required],
+          activities: ['', Validators.required],
+          difficulty: ['', Validators.required],
+          description: '',
+          duration: ['', Validators.required]
+      });   
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PostTripPage');
-  }
+    next(){
+        this.postTripSlider.slideNext();
+    }
+ 
+    prev(){
+        this.postTripSlider.slidePrev();
+    }
+
+    getActivities(){
+    	this.activitiesProvider.get()
+    	.subscribe( (data) => {
+    		this.activities = data;
+    		console.log(this.activities)
+        });
+    }  
+
+    ionViewDidLoad() {
+      console.log('ionViewDidLoad PostTripPage');
+    }
+
+    save(){
+
+    }
 
 }
