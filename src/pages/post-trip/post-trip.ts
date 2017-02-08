@@ -1,7 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { ActivitisServices } from '../../providers/activities.services';
+import { NewCarPage } from '../new-car/new-car';
 
 @Component({
   selector: 'page-post-trip',
@@ -23,7 +24,7 @@ export class PostTripPage {
     		activities: []
     	};
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public activitiesProvider: ActivitisServices, public formBuilder: FormBuilder) {
+    constructor(public navCtrl: NavController, public navParams: NavParams, public activitiesProvider: ActivitisServices, public formBuilder: FormBuilder, public modalCtrl: ModalController) {
       this.initForms();
       this.getActivities();
     }
@@ -53,6 +54,17 @@ export class PostTripPage {
     		console.log(this.activities)
         });
     }  
+
+    showNewCarModal(ev)
+    {
+       
+        let modal = this.modalCtrl.create(NewCarPage);
+        modal.present();
+
+        modal.onDidDismiss((data: any) => {
+          console.log("data desde la vista disparadora. ",data);
+        });   
+    }    
 
     ionViewDidLoad() {
       console.log('ionViewDidLoad PostTripPage');

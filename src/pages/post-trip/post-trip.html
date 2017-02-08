@@ -56,22 +56,113 @@
         </ion-item>
 
         <ion-buttons>
-          <button ion-button icon-right (click)="next()">Next <ion-icon name="arrow-forward"></ion-icon></button>
+          <button ion-button icon-right (click)="next()">
+            Next <ion-icon name="arrow-forward"></ion-icon>
+          </button>
         </ion-buttons>          
       </form>
     </ion-slide>
 
     <ion-slide>
+      <h1>Let's talk car stuff.</h1>
+      <ion-label>(Vroom vroom!)</ion-label>
       <form>
-
-
-        <ion-buttons>
-          <button ion-button icon-left (click)="prev()"><ion-icon name="arrow-back"></ion-icon> Prev</button>
+        <ion-list>
+          <ion-item>
+            <ion-label stacked>My Cars*</ion-label>
+            <ion-select>
+              <ion-option value="hola">
+               carro1 
+              </ion-option>
+              <ion-option value="hola2">
+               carro2 
+              </ion-option>            
+            </ion-select>
+          </ion-item> 
+          <ion-buttons>
+          <button ion-button icon-left color="primary" (click)="showNewCarModal($event)">
+            New car
+          </button>
         </ion-buttons> 
-        <button ion-button full color="secondary"  (click)="save()">
+          <ion-item>
+            <ion-label>Available seats</ion-label>
+            <ion-input type="number"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Smoking Friendly?</ion-label>
+            <ion-toggle></ion-toggle>
+          </ion-item>
+          <ion-item>
+            <ion-label>Music in the car</ion-label>
+            <ion-toggle checked="true"></ion-toggle>
+          </ion-item>          
+        </ion-list>
+        <ion-buttons>
+          <button ion-button icon-left (click)="prev()">
+            <ion-icon name="arrow-back"></ion-icon> Prev
+          </button>
+          <button ion-button icon-right (click)="next()">
+            Next <ion-icon name="arrow-forward"></ion-icon>
+          </button>
+        </ion-buttons> 
+<!--         <button ion-button full color="secondary"  (click)="save()">
           Save
-        </button>
+        </button> -->
       </form>
     </ion-slide>
+    <ion-slide>
+      <form>
+        <h1>When & Where?</h1>
+        <ion-list>
+          <ion-item>
+            <ion-label>Date of trip:*</ion-label>
+            <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD/MM/YYYY"></ion-datetime>
+          </ion-item>
+          <ion-item>
+            <ion-label>Pickup time:</ion-label>
+            <ion-datetime displayFormat="H:m A" pickerFormat="h:m A"></ion-datetime>
+          </ion-item>  
+
+        <ion-item>
+          <ion-label> Which T Station: </ion-label>
+          <ion-select>
+            <ion-option>
+            estación de prueba
+            </ion-option>
+          </ion-select>
+        </ion-item>
+
+          <ion-item>
+            <ion-label>Drop off time :</ion-label>
+            <ion-datetime displayFormat="H:m A" pickerFormat="h:m A"></ion-datetime>
+          </ion-item>                    
+        </ion-list>
+        <ion-buttons>
+          <button ion-button icon-left (click)="prev()">
+            <ion-icon name="arrow-back"></ion-icon> Prev
+          </button>
+          <button ion-button icon-right (click)="next()">
+            Next <ion-icon name="arrow-forward"></ion-icon>
+          </button>
+        </ion-buttons>         
+      </form>
+    </ion-slide>
+
+      <ion-slide>
+        <h1>Here's the deal ...</h1>
+        <h2>Great! You can earn $8.00 for your first passenger.</h2>
+        <h2>Would you like to continue posting your ride?</h2>
+        <ion-buttons>
+          <button ion-button icon-left (click)="prev()">
+            <ion-icon name="arrow-back"></ion-icon> Prev
+          </button>
+          <button ion-button icon-left>
+            Yes
+          </button>          
+          <button ion-button icon-right>
+            No
+          </button>
+        </ion-buttons>          
+      </ion-slide>
   </ion-slides>
 </ion-content>

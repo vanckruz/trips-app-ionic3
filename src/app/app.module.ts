@@ -17,6 +17,7 @@ import { Settings } from '../pages/settings/settings';
 import { TripsGuestPage } from '../pages/trips-guest/trips-guest';
 import { SignupPage } from '../pages/signup/signup';
 import { PostTripPage } from '../pages/post-trip/post-trip';
+import { NewCarPage } from '../pages/new-car/new-car';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { PostTripPage } from '../pages/post-trip/post-trip';
     Settings,
     TripsGuestPage,
     SignupPage,
-    PostTripPage
+    PostTripPage,
+    NewCarPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -55,7 +57,8 @@ import { PostTripPage } from '../pages/post-trip/post-trip';
     Settings,
     TripsGuestPage,
     SignupPage,
-    PostTripPage
+    PostTripPage,
+    NewCarPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},Storage]
 })

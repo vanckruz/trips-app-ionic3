@@ -1,0 +1,49 @@
+<ion-header>
+
+  <ion-navbar color="blue-light">
+    <ion-title>New Car</ion-title>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>       
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	<form>
+		<ion-list>
+			<ion-item>
+				<ion-label stacked>Type of Car*</ion-label>
+	            <ion-select>
+	              <ion-option value="hola">
+	               carro1 
+	              </ion-option>
+	              <ion-option value="hola2">
+	               carro2 
+	              </ion-option>            
+	            </ion-select>
+			</ion-item>
+			<ion-item>
+				<ion-label stacked>Car make*</ion-label>
+	            <ion-select>
+	              <ion-option value="lambo">
+	               lambo
+	              </ion-option>
+	              <ion-option value="ferrari">
+	              	ferrari
+	              </ion-option>   
+	              <ion-option value="bugati">
+	              	bugati
+	              </ion-option>    
+	            </ion-select>				
+			</ion-item>
+			<ion-item>
+				<ion-label stacked>Car license plate number*</ion-label>
+				<ion-input type="text"></ion-input>
+			</ion-item>			
+		</ion-list>
+	</form>
+</ion-content>
