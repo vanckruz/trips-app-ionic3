@@ -25,20 +25,21 @@ export class MyApp {
   
   @ViewChild(Nav) nav: Nav;
 
-  //rootPage:any = LoginPage;
-  rootPage:any = PostTripPage;
-  introPage:any = IntroPage;
-  loginPage:any = LoginPage;
-  perfil:any = Profile;
-  searchTrips:any = SearchTrips;
-  footerPage:any = Footer;
+  rootPage: any = LoginPage;
+  //rootPage:any = PostTripPage;
+  introPage: any = IntroPage;
+  loginPage: any = LoginPage;
+  perfil: any = Profile;
+  searchTrips: any = SearchTrips;
+  footerPage: any = Footer;
+  user: any;
 
   constructor(platform: Platform, private storage: Storage, private toastCtrl: ToastController, private loading: LoadingController) {
 
     platform.ready().then(() => {
       StatusBar.styleDefault();
       Splashscreen.hide();
-      //this.checkLogin();
+      this.checkLogin();
     });
 
   }
@@ -46,11 +47,17 @@ export class MyApp {
   checkLogin(){
     this.storage.get('user').then((user) => {
       this.rootPage = (user) ? Footer : LoginPage;
+      this.user = user;
+      console.log(user);
     });      
   }
 
   goToIntro(){
     this.nav.push(IntroPage);
+  }
+
+  goToPostTrip(){
+   this.nav.push(PostTripPage); 
   }
 
   logout(){
