@@ -7,11 +7,11 @@
 		<ion-card-content>
 		    <form>
 		       <ion-item>
-		        <ion-label floating>User</ion-label>
+		        <ion-label stacked>User</ion-label>
 		        <ion-input type="text" [(ngModel)]="email" name="email"></ion-input>
 		      </ion-item>
 		       <ion-item>
-		        <ion-label floating>Password</ion-label>
+		        <ion-label stacked>Password</ion-label>
 		        <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
 		      </ion-item>
 		    </form>
@@ -28,7 +28,7 @@
 			    	</button>
 			    </div> -->
 				<div class="center">
-			    	<button ion-button color="light" full color="orange" (click)="goSingup()">
+			    	<button ion-button color="light" full color="orange" (click)="goToSingup()">
 			    		Sign up
 			    	</button>
 			    </div>
@@ -37,9 +37,10 @@
 
 	</ion-card>
 
-	<ion-footer>
-		<button ion-button color="blue-light" full (click)="exploretrips()">
+	<ion-footer text-center>
+		<button ion-button color="blue-light" (click)="exploretrips()">
 			Explore trips &nbsp;<ion-icon name="compass" right></ion-icon>
 		</button>
+		<button ion-button color="orange" (click)="goToIntro()">How to work?</button>
 	</ion-footer>
 </div>

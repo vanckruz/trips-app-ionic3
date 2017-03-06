@@ -26,10 +26,6 @@ export class LoginPage{
     {
     	this.bgRamdon();
     }      	
-
-	goToIntro(){
-		this.navCtrl.push(IntroPage);
-	}
 	
 	ramdonTheming(){
 		return this.theming[Math.floor(Math.random() * this.theming.length)];
@@ -85,8 +81,12 @@ export class LoginPage{
 
 	}
 
-	goSingup(){
+	goToSingup(){
 	    this.navCtrl.setRoot(SignupPage);	
+	}
+
+	goToIntro(){
+		this.navCtrl.push(IntroPage);
 	}
 
 	exploretrips(){

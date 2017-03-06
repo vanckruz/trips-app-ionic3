@@ -40,6 +40,21 @@ $colors: (
 
 
 // App iOS Variables
+$colors-ios: (
+  primary:    #387ef5,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222,
+  favorite:   #69BB7B,
+  blue-light: gray,
+  blue-dark: #3B5999,
+  orange: #FF9800,
+  gray: #CCC,
+  green: #008900,
+  white: #FFF,
+  black: #000
+);
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
