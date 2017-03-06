@@ -281,6 +281,8 @@ export class Trips {
 	                this.search.search(data).subscribe( (data) => {
 	                      loading.dismiss().then( () => {
 	                            console.log(data);
+	                            console.log(this.trips);
+
 	                            // this.trips = data;                    
 	                      } );
 	                });

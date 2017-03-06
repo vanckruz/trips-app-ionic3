@@ -55,9 +55,9 @@ export class LoginPage{
 	    let loading = this.loading.create({
 	      content: 'Please wait...'
 	    });    
+
 	    loading.present().then(() => {      
 			// this.login.Auth(email, password).subscribe(
-			 //this.login.Auth("rik.ganguly@gmail.com", "7WwQ7Y4lmzAG5ZN").subscribe(
 			this.login.Auth("info@ridj-it.com", "i89qBsvBt5bmlg0").subscribe(
 			  data => {
 			 
@@ -66,8 +66,8 @@ export class LoginPage{
 				      loading.dismiss().then( () => {
 				        	this.navCtrl.setRoot(Footer, {
 							    user: data.json()
-							});				
-				      } );
+								});				
+				      });
 
 				}else{
 					this.toastMessage(data.json().messageException).present();

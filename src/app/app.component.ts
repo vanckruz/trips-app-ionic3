@@ -16,7 +16,6 @@ import { Privacy } from '../pages/privacy/privacy';
 import { Settings } from '../pages/settings/settings';
 import { PostTripPage } from '../pages/post-trip/post-trip';
 
-
 @Component({
   templateUrl: 'app.html',
   providers: []

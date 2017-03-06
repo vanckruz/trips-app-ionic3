@@ -42,7 +42,7 @@ export class Profile {
                       loading.dismiss().then( () => {
                             this.userProfile = data;                    
                       } );
-                });
+                });//Suscribe
             });
         });//Loading               
     }
