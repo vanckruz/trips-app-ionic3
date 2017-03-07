@@ -17,16 +17,21 @@
 
 	   	<ion-item>
 			<ion-label stacked>Destination</ion-label>
-			<ion-input type="text" name="destination" [(ngModel)]="search.destination"></ion-input>
+			<ion-input type="text" name="destination" [(ngModel)]="search.destination" (keyup)="showResults()"></ion-input>
 	    </ion-item>
+			<div class="results" *ngIf="show">
+				<ion-list>
+					<ion-item (click)="setDestine({destination:'New york'})">Resultado uno</ion-item>
+					<ion-item (click)="setDestine({destination:'Moscu'})">Resultado dos</ion-item>
+					<ion-item (click)="setDestine({destination:'Caracas'})">Resultado tres</ion-item>
+				</ion-list>
+			</div>
 	    <ion-item>
 			<ion-label stacked>Start Date</ion-label>
-			<!-- <ion-input type="date" name="destination"></ion-input>	 -->
 			<ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="search.start"></ion-datetime>    	
 	    </ion-item>
 	   	<ion-item>
 			<ion-label stacked>End Date</ion-label>
-			<!-- <ion-input type="date" name="destination"></ion-input>    -->
 			<ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="search.end"></ion-datetime> 	
 	    </ion-item>
 	    <ion-item>

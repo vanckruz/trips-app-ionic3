@@ -6,6 +6,13 @@ page-search-trips {
 	// 	background-size: cover;
 	// }
 
+	.results{
+		z-index: 30;
+		ion-item{
+			border: 1px dotted #f1f1f1;
+		}
+	}
+
 	.box{
 		padding: 4em 1em 1em 1em;
 		background: #FFF;

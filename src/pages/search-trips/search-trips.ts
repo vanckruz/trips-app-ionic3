@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, ViewController, NavParams } from 'ionic-angular';
 
 interface Search<T>{
@@ -22,6 +22,7 @@ export class SearchTrips {
 		activities: []
 	}
 	activities: Array<string>;
+	show : boolean = false;
 
  	constructor(
 		 public navCtrl: NavController, 
@@ -31,10 +32,22 @@ export class SearchTrips {
 		this.activities = navParams.get("params");		
  	}	
 
-	private dismiss(run=false) 
-	{
-		this.search.run = run ? true : false;
+	showResults(){
+		this.show = true;
+	}
 
+	hideResults(){
+		this.show = false;
+	}
+
+	setDestine(goTo){
+		this.search.destination = goTo.destination;
+		console.log("destino: ",this.search.destination);
+		this.show = false;		
+	}
+
+	dismiss(run=false){
+		this.search.run = run ? true : false;
 		this.viewCtrl.dismiss(this.search);
 	}
 	

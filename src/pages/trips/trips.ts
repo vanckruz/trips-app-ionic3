@@ -11,8 +11,8 @@ import { TripServices } from '../../providers/trips.services';
 
 
 @Component({
-  selector: 'page-trips-guest',
-  templateUrl: 'trips-guest.html',
+  selector: 'page-trips',
+  templateUrl: 'trips.html',
   providers: [
 		SearchServices, 
 		ActivitisServices,
