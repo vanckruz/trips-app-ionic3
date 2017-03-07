@@ -7,10 +7,8 @@ import { NavController } from 'ionic-angular';
 })
 export class Privacy {
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController){
 
-  ionViewDidLoad() {
-    console.log('Hello Privacy Page');
   }
 
 }

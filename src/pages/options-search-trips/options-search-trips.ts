@@ -7,10 +7,11 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class OptionsSearchTrips {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OptionsSearchTripsPage');
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams
+  ){
+    
   }
 
 }

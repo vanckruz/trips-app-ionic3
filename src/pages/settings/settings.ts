@@ -18,10 +18,13 @@ import { Privacy } from '../privacy/privacy';
 })
 export class Settings {
     
-  constructor(private app: App, public navCtrl: NavController,public storage:Storage, public loading:LoadingController) {}
+  constructor(
+    private app: App, 
+    public navCtrl: NavController,
+    public storage:Storage, 
+    public loading:LoadingController
+  ){
 
-  ionViewDidLoad() {
-    console.log('Hello Settings Page');
   }
 
   goToPrivacy(){
@@ -43,4 +46,5 @@ export class Settings {
       } );
     });
   }  
+  
 }

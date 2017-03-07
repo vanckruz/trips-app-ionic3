@@ -6,7 +6,6 @@ import { IntroPage } from '../intro/intro';
 import { Footer } from '../footer/footer';
 import { SignupPage } from '../signup/signup';
 import { TripsGuestPage } from '../trips-guest/trips-guest';
-
 import { LoginServices } from '../../providers/login.services';
 
 @Component({
@@ -19,23 +18,28 @@ export class LoginPage{
 	user:any;
 	email:any;
 	password:any;
-    theming: Array<string> = ["1.jpg","2.jpg","3.jpg","4.jpg"];
-    imgRandom: string = "assets/images/img_theming/1.jpg";
+	theming: Array<string> = ["1.jpg","2.jpg","3.jpg","4.jpg"];
+	imgRandom: string = "assets/images/img_theming/1.jpg";
 
-    constructor(public storage: Storage, public navCtrl: NavController, private toastCtrl: ToastController, public loading:LoadingController, private login: LoginServices) 
-    {
-    	this.bgRamdon();
-    }      	
+	constructor(
+		public storage: Storage, 
+		public navCtrl: NavController, 
+		private toastCtrl: ToastController, 
+		public loading:LoadingController, 
+		private login: LoginServices
+	){
+		this.bgRamdon();
+	}      	
 	
 	ramdonTheming(){
 		return this.theming[Math.floor(Math.random() * this.theming.length)];
 	}
 
-    bgRamdon():void
-    {
-        // setInterval( () => this.imgRandom = "assets/images/img_theming/"+this.ramdonTheming(), 5000);
-        this.imgRandom = "assets/images/img_theming/"+this.ramdonTheming();
-    }	
+	bgRamdon():void
+	{
+			// setInterval( () => this.imgRandom = "assets/images/img_theming/"+this.ramdonTheming(), 5000);
+			this.imgRandom = "assets/images/img_theming/"+this.ramdonTheming();
+	}	
 
 	toastMessage(message): any {
 	  let toast = this.toastCtrl.create({
@@ -76,11 +80,6 @@ export class LoginPage{
 		});//Loading			
 	}	
 
-	ionViewWillEnter() 
-	{
-
-	}
-
 	goToSingup(){
 	    this.navCtrl.setRoot(SignupPage);	
 	}
@@ -92,4 +91,5 @@ export class LoginPage{
 	exploretrips(){
 	    this.navCtrl.setRoot(TripsGuestPage);	
 	}
+	
 }

@@ -16,23 +16,20 @@ interface Search<T>{
 export class SearchTrips {
   
 	search: Search<string> = {
-			destination: "",
-			start: "",
-			end: "",
-			activities: []
-		}
+		destination: "",
+		start: "",
+		end: "",
+		activities: []
+	}
 	activities: Array<string>;
 
-
- 	constructor(public navCtrl: NavController, public viewCtrl: ViewController, public navParams: NavParams)
- 	{
+ 	constructor(
+		 public navCtrl: NavController, 
+		 public viewCtrl: ViewController, 
+		 public navParams: NavParams
+	){
 		this.activities = navParams.get("params");		
- 	}
-
-	ionViewDidLoad() 
-	{
-		console.log('Hello SearchTrips Page');
-	}	
+ 	}	
 
 	private dismiss(run=false) 
 	{
@@ -40,4 +37,5 @@ export class SearchTrips {
 
 		this.viewCtrl.dismiss(this.search);
 	}
+	
 }

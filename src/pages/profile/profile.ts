@@ -16,8 +16,13 @@ export class Profile {
     public theming: Array<string> = ["1.jpg","2.jpg","3.jpg","4.jpg"];
     public imgRandom: string = "assets/images/img_theming/1.jpg";
 
-    constructor(public navCtrl: NavController,	public params: NavParams, public storage: Storage, private profile:ProfileServices,private loading: LoadingController)
-    {
+    constructor(
+        public navCtrl: NavController,	
+        public params: NavParams, 
+        public storage: Storage, 
+        private profile:ProfileServices,
+        private loading: LoadingController
+    ){
         this.bgRamdon();
     }
 
@@ -47,8 +52,4 @@ export class Profile {
         });//Loading               
     }
 
-    ionViewDidLoad() 
-    {
-        
-    }
 }

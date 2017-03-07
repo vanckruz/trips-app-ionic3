@@ -1,30 +1,36 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController, NavParams, ModalController } from 'ionic-angular';
-import { ActivitisServices } from '../../providers/activities.services';
+
 import { NewCarPage } from '../new-car/new-car';
+import { ActivitisServices } from '../../providers/activities.services';
 
 @Component({
   selector: 'page-post-trip',
   templateUrl: 'post-trip.html',
-    providers: [ActivitisServices]
-
+  providers: [ActivitisServices]
 })
 export class PostTripPage {
 
     @ViewChild('postTripSlider') postTripSlider: any;
+    activities: Array<any>;
     slideOneForm: FormGroup;
     slideTwoForm: FormGroup;
-    activities: Array<any>;
 
     tripData: any =  {
     		destination: "",
         difficulty: "",
         duration: "",
     		activities: []
-    	};
+    };
 
-    constructor(public navCtrl: NavController, public navParams: NavParams, public activitiesProvider: ActivitisServices, public formBuilder: FormBuilder, public modalCtrl: ModalController) {
+    constructor(
+      public navCtrl: NavController, 
+      public navParams: NavParams, 
+      public modalCtrl: ModalController,
+      public formBuilder: FormBuilder,
+      public activitiesProvider: ActivitisServices
+    ){
       this.initForms();
       this.getActivities();
     }
@@ -66,11 +72,8 @@ export class PostTripPage {
         });   
     }    
 
-    ionViewDidLoad() {
-      console.log('ionViewDidLoad PostTripPage');
-    }
-
-    save(){
+    save()
+    {
 
     }
 

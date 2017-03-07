@@ -29,14 +29,14 @@ export class TripsGuestPage {
 		public popoverCtrl: PopoverController, 
 		public modalCtrl: ModalController, 
 		public viewCtrl: ViewController, 
+		public loading: LoadingController,
 		public search: SearchServices,
 		public activitiesProvider: ActivitisServices, 
-		public loading: LoadingController,
 		public tripServices: TripServices
-		){
-			//this.getTrips();
-			this.trips = this.tripServices.getTrips();
-			this.getActivities();
+	){
+		//this.getTrips();
+		this.trips = this.tripServices.getTrips();
+		this.getActivities();
 	}
 
 	getActivities(){
