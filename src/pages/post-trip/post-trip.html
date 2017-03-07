@@ -10,9 +10,15 @@
       <form [formGroup]="slideOneForm">
         <ion-item>
           <ion-label stacked>Destination*</ion-label>
-          <ion-input type="text" formControlName="destination"></ion-input>
+          <ion-input type="text" formControlName="destination" #destination (keyup)="showResults()"></ion-input>
         </ion-item>
-
+        <div class="results" *ngIf="show">
+          <ion-list>
+            <ion-item (click)="setDestine({destination:'New york'})">Resultado uno</ion-item>
+            <ion-item (click)="setDestine({destination:'Moscu'})">Resultado dos</ion-item>
+            <ion-item (click)="setDestine({destination:'Caracas'})">Resultado tres</ion-item>
+          </ion-list>
+        </div>        
         <ion-item>
           <ion-label stacked>Activities*</ion-label>
           <ion-select  multiple="true" *ngIf="activities" formControlName="activities">

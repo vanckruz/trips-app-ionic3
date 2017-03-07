@@ -7,9 +7,14 @@ page-search-trips {
 	// }
 
 	.results{
+        position: absolute;
+        width: 94%;
+		margin: auto;
 		z-index: 30;
+        border: 2px solid #387EF5;
+        margin-top: -2px;
 		ion-item{
-			border: 1px dotted #f1f1f1;
+			background: #fff;
 		}
 	}
 

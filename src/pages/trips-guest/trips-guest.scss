@@ -5,9 +5,12 @@ page-trips-guest {
 	}
 
 	ion-card{
-		ion-card-header.header-card{
-			background: #ccc !important;
+		.header-card{
+			background: #f0f0f0 !important;
 			color: rgba(0,0,0,0.9) !important;
+			&:hover{
+				background: green;
+			}
 		}
 	}
 
@@ -16,9 +19,10 @@ page-trips-guest {
 	}
 
 	p.slideName{
-		font-size: 1em;
+		font-size: .7em;
 		line-height: 2em;
 		text-transform: uppercase;
 		text-align: center;
+		font-weight: bold;
 	}
 }

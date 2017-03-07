@@ -1,3 +1,14 @@
 page-post-trip {
 
+	.results{
+        position: absolute;
+        width: 100%;
+		z-index: 30;
+        border: 2px solid #387EF5;
+        margin-top: -2px;
+		ion-item{
+			background: #fff;
+		}
+	}
+
 }

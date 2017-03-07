@@ -17,10 +17,10 @@
 <ion-content padding>
 
 	<div *ngIf="trips !== null" >
-
+		<ion-label *ngIf="trips.length"> {{ trips.length }} trips found </ion-label>
 		<ion-card *ngFor="let trip of trips">
 
-			<ion-item (click)="detailTrip(trip)"> 
+			<ion-item (click)="detailTrip(trip)" class="header-card"> 
 				<ion-avatar item-left>
 					<img [src]="trip.driverPic">
 				</ion-avatar>
