@@ -9,6 +9,12 @@ import { SearchServices } from '../../providers/search.services';
 import { ActivitisServices } from '../../providers/activities.services';
 import { TripServices } from '../../providers/trips.services';
 
+interface Comparable{
+	gender: string;
+	start?: string | number;
+	end?: string | number;
+	activities?: Array<string>;
+}
 
 @Component({
   selector: 'page-trips-guest',
@@ -122,8 +128,15 @@ export class TripsGuestPage {
 		if(filterObject !== null){
 							
 			let filter = this.trips.filter(
-				item => {						
-					if(item.genderDriver.toLowerCase() === filterObject.gender.toLowerCase()){
+				item => {		
+					let startDateParam = Date.parse( filterObject.start !== "" ? filterObject.start : Date.now() );
+					let endDateParam = Date.parse( filterObject.start !== "" ? filterObject.start : Date.now() );
+					let startDate = new Date(startDateParam);
+					let endDate = new Date(endDateParam);
+
+					console.log("fecha" , startDate.toLocaleDateString() );
+					if(item.genderDriver.toLowerCase() === filterObject.gender.toLowerCase() 
+					){
 						return true;
 					}
 					return false;
