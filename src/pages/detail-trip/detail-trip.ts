@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
+import { UserInfoPage } from '../user-info/user-info';
+
 @Component({
   selector: 'page-detail-trip',
   templateUrl: 'detail-trip.html'
@@ -32,5 +34,11 @@ export class DetailTrip {
 
 	letRide(){
 
+	}
+
+	goUserInfo(user){
+		this.navCtrl.push(UserInfoPage, {
+			user: user
+		});
 	}
 }

@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 import { IntroPage } from '../intro/intro';
 import { LoginPage } from '../login/login';
@@ -10,7 +11,6 @@ import { DetailTrip } from '../detail-trip/detail-trip';
 import { MyTrips } from '../my-trips/my-trips';
 import { Privacy } from '../privacy/privacy';
 import { Settings } from '../settings/settings';
-import { Storage } from '@ionic/storage';
 import { ProfileServices } from '../../providers/profile.services';
 import { UserValidatorServices } from '../../providers/user.validator.services';
 
@@ -32,16 +32,14 @@ export class Footer {
 
   constructor(public navCtrl: NavController, public params: NavParams, public storage: Storage, public loading:LoadingController, private profileService: ProfileServices ) {
     
-    this.storage.get('user').then((user) => {
-     
+/*    this.storage.get('user').then((user) => {    
       if(user == null){
         this.storage.set('user', JSON.stringify( this.params.get("user") ) ).then(() => {
           console.log('Name has been set');
         });    
 
-      }
-      
-    });  
+      }      
+    }); */ 
 
   }  
 

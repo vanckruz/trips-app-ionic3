@@ -86,7 +86,7 @@
 				  Members
 				  <ion-badge item-right *ngIf="trip.groupTripInfo.members.length > 0">{{ trip.groupTripInfo.members.length }}</ion-badge>
 				</ion-item>
-				<div class="itemRider" *ngFor="let member of trip.groupTripInfo.members">
+				<div class="itemRider" *ngFor="let member of trip.groupTripInfo.members" (click)="goUserInfo(member)">
 			     	<img [src]="member.pic">
 			     	<p>
 						{{ member.firstName}} {{ member.lastName }}
@@ -171,7 +171,7 @@
 				  Members
 				  <ion-badge item-right *ngIf="trip.singleTripInfo.riders.length > 0">{{ trip.singleTripInfo.riders.length }}</ion-badge>
 				</ion-item>		
-				<div class="itemRider" *ngFor="let rider of trip.singleTripInfo.riders">
+				<div class="itemRider" *ngFor="let rider of trip.singleTripInfo.riders" (click)="goUserInfo(rider)">
 			     	<img [src]="rider.pic">
 			     	<p>
 						{{ rider.firstName}} {{ rider.lastName }}

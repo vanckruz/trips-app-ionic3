@@ -18,6 +18,7 @@ import { TripsGuestPage } from '../pages/trips-guest/trips-guest';
 import { SignupPage } from '../pages/signup/signup';
 import { PostTripPage } from '../pages/post-trip/post-trip';
 import { NewCarPage } from '../pages/new-car/new-car';
+import { UserInfoPage } from '../pages/user-info/user-info';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { NewCarPage } from '../pages/new-car/new-car';
     TripsGuestPage,
     SignupPage,
     PostTripPage,
-    NewCarPage
+    NewCarPage,
+    UserInfoPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -58,7 +60,8 @@ import { NewCarPage } from '../pages/new-car/new-car';
     TripsGuestPage,
     SignupPage,
     PostTripPage,
-    NewCarPage
+    NewCarPage,
+    UserInfoPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},Storage]
 })

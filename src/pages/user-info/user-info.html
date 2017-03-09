@@ -1,12 +1,28 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="blue-light"> 
     <ion-title>User info</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
+
 <ion-content padding>
 
+	<ion-card *ngIf="user != undefined || user != null">
+	
+ 		<div class="image_center">			
+			<img [src]="user.pic">    
+		</div>
+
+		<ion-card-content>
+
+			<h1 text-center>{{ user.firstName }} {{ user.lastName }}</h1>
+			<h2 text-center>{{ user.gender }}</h2>
+
+		</ion-card-content>
+		
+	</ion-card>
+	
 </ion-content>

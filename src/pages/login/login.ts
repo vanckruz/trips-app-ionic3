@@ -64,9 +64,12 @@ export class LoginPage{
 				if(data.json().messageException == null){
 				
 				      loading.dismiss().then( () => {
-				        	this.navCtrl.setRoot(Footer, {
-							    user: data.json()
+				      		this.storage.set('user', JSON.stringify( data.json() ) ).then(() => {
+					         	console.log('User has been set:', data.json());
+					        	this.navCtrl.setRoot(Footer, {
+								    user: data.json()
 								});				
+					        });
 				      });
 
 				}else{
@@ -74,7 +77,7 @@ export class LoginPage{
 				}
 			      
 			  },
-			  err => console.error(err),
+			  err => this.toastMessage(err).present(),
 			  () => console.log('Petición completed')
 			);//Auth
 		});//Loading			
