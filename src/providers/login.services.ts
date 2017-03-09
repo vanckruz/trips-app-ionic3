@@ -23,12 +23,10 @@ export class LoginServices{
 		let options = new RequestOptions({
 			headers: headers
 		});
-		// TODO: Encode the values using encodeURIComponent().
+
 		let body = 'email=' + email + '&password=' + password;
 
-		let user = this.http.post(config.routes.login, body, options);
-
-		return user;
+		return this.http.post(config.routes.login(), body, options);
 	}
 
 }

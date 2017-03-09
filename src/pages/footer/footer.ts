@@ -12,6 +12,7 @@ import { Privacy } from '../privacy/privacy';
 import { Settings } from '../settings/settings';
 import { Storage } from '@ionic/storage';
 import { ProfileServices } from '../../providers/profile.services';
+import { UserValidatorServices } from '../../providers/user.validator.services';
 
 @Component({
   selector: 'page-footer',
@@ -34,7 +35,6 @@ export class Footer {
     this.storage.get('user').then((user) => {
      
       if(user == null){
-        
         this.storage.set('user', JSON.stringify( this.params.get("user") ) ).then(() => {
           console.log('Name has been set');
         });    

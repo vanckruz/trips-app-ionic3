@@ -17,8 +17,8 @@ export class MyTripsServices{
 
 	}
 
-	getMyTrips(idUser){
-	    return this.http.get(config.routes.myTrips+idUser).map(res => res.json());
+	getMyTrips(parameters){
+	    return this.http.get(config.routes.myTrips(parameters)).map(res => res.json());
 	}
 
 }

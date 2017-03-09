@@ -8,6 +8,26 @@ page-detail-trip {
 		text-align:center;
 		img{
 			display:block;
+			border-radius: 50%;
+			width: 70%;
+			margin: auto;
+		}
+		.title{
+			margin-top: 5px;
+			border-top: 1px solid rgba(0,0,0,0.2);
+			border-bottom: 1px solid rgba(0,0,0,0.2);
+		}
+	}
+	div.imgGroup{
+		text-align:center;
+		img{
+			display:block;
+			margin: auto;
+		}
+		.title{
+			margin-top: 5px;
+			border-top: 1px solid rgba(0,0,0,0.2);
+			border-bottom: 1px solid rgba(0,0,0,0.2);
 		}
 	}
 
@@ -17,7 +37,7 @@ page-detail-trip {
 		background: #e9ebee;
 	}
 
-    #ridersList{
+    .ridersList{
         display: flex;
         justify-content: center;
         flex-wrap: wrap;

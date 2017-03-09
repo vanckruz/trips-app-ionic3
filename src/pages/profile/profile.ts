@@ -43,7 +43,10 @@ export class Profile {
         });    
         loading.present().then(() => {      
             this.storage.get('user').then((user) => {
-                this.profile.getProfile("token",JSON.parse(user).idUser).subscribe( (data) => {
+                this.profile.getProfile({
+                    id: JSON.parse(user).idUser,
+                    token: ""
+                }).subscribe( (data) => {
                       loading.dismiss().then( () => {
                             this.userProfile = data;                    
                       } );

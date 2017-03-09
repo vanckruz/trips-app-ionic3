@@ -18,7 +18,7 @@ export class ActivitisServices{
 	}
 
 	get(){
-	    return this.http.get(config.routes.activities).map(res => res.json());
+	    return this.http.get(config.routes.activities()).map(res => res.json());
 	}
 
 }

@@ -40,8 +40,8 @@ export class TripsGuestPage {
 		public activitiesProvider: ActivitisServices, 
 		public tripServices: TripServices
 	){
-		//this.getTrips();
-		this.trips = this.tripServices.getTrips();
+		//this.trips = this.tripServices.getTrips();
+		this.getTrips();
 		this.getActivities();
 	}
 
@@ -53,7 +53,18 @@ export class TripsGuestPage {
 	}
 
 	getTrips(){
-		//this.tripServices.getTrips().subscribe( data => this.trips = data );
+		let loading = this.loading.create({
+			content: 'Please wait...'
+		});    
+		
+		loading.present().then(() => {      
+			this.tripServices.getTrips().subscribe( (data) => {
+				loading.dismiss().then( () => {
+					console.log(data);
+					this.trips = data;                    
+				} );
+			});
+		});//Loading   			
 	}
 
 	detailTrip(trip){
@@ -63,7 +74,8 @@ export class TripsGuestPage {
 	}
 
 	refreshTrips(){
-		this.trips = this.tripServices.getTrips();
+		this.getTrips();
+		//this.trips = this.tripServices.getTrips();
 	}
 
 	backTohome(){

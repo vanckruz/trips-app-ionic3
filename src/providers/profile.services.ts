@@ -16,20 +16,8 @@ export class ProfileServices{
 
 	}
 
-	getProfile(token, idUsuario){
-
-		let headers = new Headers({
-			'Content-Type': 'application/x-www-form-urlencoded'
-		});
-		let options = new RequestOptions({
-			headers: headers
-		});
-		// TODO: Encode the values using encodeURIComponent().
-		let body = 'token=' + token + '&idUsuario=' + idUsuario;
-
-		// let user = this.http.post('http://qa.ridj-it.com/ridjit-web/app/API/profileUser', body, options).map(res => res.json());		
-
-	    return this.http.post(config.routes.profile, body, options).map(res => res.json());
+	getProfile(parameters){
+	   return this.http.get(config.routes.profile(parameters)).map(res => res.json());    
 	}
 
 }

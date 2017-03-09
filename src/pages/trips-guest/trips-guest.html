@@ -16,49 +16,56 @@
 
 <ion-content padding>
 
-	<div *ngIf="trips !== null" >
-		<ion-label *ngIf="trips.length"> {{ trips.length }} trips found </ion-label>
-		<ion-card *ngFor="let trip of trips">
-
-			<ion-item (click)="detailTrip(trip)" class="header-card"> 
-				<ion-avatar item-left>
-					<img [src]="trip.driverPic">
-				</ion-avatar>
-				<h2>{{ trip.destination }}</h2>
-				<p>{{ trip.dateOfTrip }}</p>
-			</ion-item>
-
-				<ion-card-content>
-				<ion-grid>
-					<ion-row>
-						<ion-col width-50>
-						<ion-label text-left>Pickup time</ion-label>
-						<p class="aTop">{{ trip.pickupTime }}</p>
-						<ion-label text-left>Drop off time</ion-label>
-						<p class="aTop">{{ trip.dropOffTime }}</p>
-							
-						</ion-col>
-						<ion-col width-50>
-						<ion-slides autoplay>
-							<ion-slide *ngFor="let slide of trip.activitiesTypes">
-							<img [src]="slide.urlPic">
-							<p class="slideName">{{ slide.name }}</p>
-							</ion-slide>
-						</ion-slides>
-						</ion-col>
-					</ion-row>
-				</ion-grid>			
-			</ion-card-content>
-
-		</ion-card>
-
-	</div>
-
-	<ion-card *ngIf="trips[0] == null" padding>
+	<ion-card *ngIf="trips == null || trips == undefined" padding>
 		<ion-title text-center> <b text-center>No trips found :( </b> </ion-title>
 		<hr>
 		<button ion-button full (click)="refreshTrips()">Refresh</button>
 	</ion-card>
+
+	<div *ngIf="trips != null || trips != undefined" >
+		<ion-label *ngIf="trips != undefined && trips.length"> {{ trips.length }} trips found </ion-label>
+				
+		<ion-card *ngFor="let trip of trips">
+			
+			<div *ngIf="trip.singleTrip">	
+				<ion-item (click)="detailTrip(trip)" class="header-card"> 
+					<ion-avatar item-left>
+						<img [src]="trip.driverInfo.pic">
+					</ion-avatar>
+					<h2>{{ trip.destination }}</h2>
+					<p>{{ trip.pickupTimeLongFormat }}</p>
+				</ion-item>
+
+				<ion-card-content>
+					<ion-grid>
+						<ion-row>
+							<ion-col width-50>
+								<ion-label text-left>Pickup time</ion-label>
+								<p class="aTop">{{ trip.pickupTimeTSTFormat }}</p>
+								<ion-label text-left>Drop off time</ion-label>
+								<p class="aTop">{{ trip.dropOffTimeTSTFormat }}</p>
+							</ion-col>
+
+							<ion-col width-50>
+								<ion-slides autoplay>
+									<ion-slide *ngFor="let slide of trip.activitiesTypes">
+									<img [src]="slide.urlPic">
+									<p class="slideName">{{ slide.name }}</p>
+									</ion-slide>
+								</ion-slides>
+							</ion-col>
+						</ion-row>
+					</ion-grid>			
+				</ion-card-content>
+			</div>
+
+			<div *ngIf="trip.groupTrip">	
+
+			</div>
+
+		</ion-card>
+
+	</div>
 
 </ion-content>
 

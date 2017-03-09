@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, PopoverController, NavParams, ModalController, ViewController, LoadingController } from 'ionic-angular';
+import { Storage } from '@ionic/storage';
 
 import { LoginPage } from '../login/login';
 import { DetailTrip } from '../detail-trip/detail-trip';
@@ -8,7 +9,14 @@ import { FilterTrips } from '../filter-trips/filter-trips';
 import { SearchServices } from '../../providers/search.services';
 import { ActivitisServices } from '../../providers/activities.services';
 import { TripServices } from '../../providers/trips.services';
+import { UserValidatorServices } from '../../providers/user.validator.services';
 
+interface Comparable{
+	gender: string;
+	start?: string | number;
+	end?: string | number;
+	activities?: Array<string>;
+}
 
 @Component({
   selector: 'page-trips',
@@ -23,6 +31,7 @@ export class Trips {
 
 	activities: Array<any>;
 	trips: any;
+	user: any;
 
 	constructor(
 		public navCtrl: NavController, 
@@ -32,10 +41,12 @@ export class Trips {
 		public loading: LoadingController,
 		public search: SearchServices,
 		public activitiesProvider: ActivitisServices, 
-		public tripServices: TripServices
+		public tripServices: TripServices,
+		public storage: Storage
 	){
-		//this.getTrips();
-		this.trips = this.tripServices.getTrips();
+		//this.trips = this.tripServices.getTrips();
+		this.showBlockedItems();
+		this.getTrips();
 		this.getActivities();
 	}
 
@@ -47,7 +58,24 @@ export class Trips {
 	}
 
 	getTrips(){
-		//this.tripServices.getTrips().subscribe( data => this.trips = data );
+		let loading = this.loading.create({
+			content: 'Please wait...'
+		});    
+		
+		loading.present().then(() => {      
+			this.tripServices.getTrips().subscribe( (data) => {
+				loading.dismiss().then( () => {
+					console.log(data);
+					this.trips = data;                    
+				} );
+			});
+		});//Loading   			
+	}
+
+	showBlockedItems(){
+		this.storage.get('user').then((user) => {
+		  this.user = user;
+		});   
 	}
 
 	detailTrip(trip){
@@ -57,7 +85,8 @@ export class Trips {
 	}
 
 	refreshTrips(){
-		this.trips = this.tripServices.getTrips();
+		this.getTrips();
+		//this.trips = this.tripServices.getTrips();
 	}
 
 	backTohome(){
@@ -122,8 +151,15 @@ export class Trips {
 		if(filterObject !== null){
 							
 			let filter = this.trips.filter(
-				item => {						
-					if(item.genderDriver.toLowerCase() === filterObject.gender.toLowerCase()){
+				item => {		
+					let startDateParam = Date.parse( filterObject.start !== "" ? filterObject.start : Date.now() );
+					let endDateParam = Date.parse( filterObject.start !== "" ? filterObject.start : Date.now() );
+					let startDate = new Date(startDateParam);
+					let endDate = new Date(endDateParam);
+
+					console.log("fecha" , startDate.toLocaleDateString() );
+					if(item.genderDriver.toLowerCase() === filterObject.gender.toLowerCase() 
+					){
 						return true;
 					}
 					return false;

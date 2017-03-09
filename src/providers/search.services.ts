@@ -18,7 +18,7 @@ export class SearchServices{
 	}
 
 	search(data){
-	    return this.http.post(config.routes.search,data).map(res => res.json());
+	    return this.http.get(config.routes.search(), data).map(res => res.json());
 	}
 
 }

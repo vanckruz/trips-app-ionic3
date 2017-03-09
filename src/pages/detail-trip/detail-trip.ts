@@ -9,20 +9,24 @@ import { Storage } from '@ionic/storage';
 export class DetailTrip {
 
 	trip: any;
-	showButton: boolean;
+	show: boolean;
 
-	constructor(public navCtrl: NavController,	public params: NavParams, public storage: Storage){
+	constructor(
+		public navCtrl: NavController,
+		public params: NavParams,
+		public storage: Storage
+	){
 		this.trip = this.params.get("trip");
-		this.showLetRide();
+		this.showBlockedItems();
 	}
 
 	ionViewDidLoad(){
 		console.log('Hello DetailTrip Page');
 	}
 
-	showLetRide(){
+	showBlockedItems(){
 		this.storage.get('user').then((user) => {
-		  this.showButton = (user) ? true : false;
+		  this.show = (user) ? true : false;
 		});      
 	}
 

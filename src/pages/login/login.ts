@@ -5,7 +5,7 @@ import { Storage } from '@ionic/storage';
 import { IntroPage } from '../intro/intro';
 import { Footer } from '../footer/footer';
 import { SignupPage } from '../signup/signup';
-import { TripsGuestPage } from '../trips-guest/trips-guest';
+import { Trips } from '../trips/trips';
 import { LoginServices } from '../../providers/login.services';
 
 @Component({
@@ -58,7 +58,7 @@ export class LoginPage{
 
 	    loading.present().then(() => {      
 			// this.login.Auth(email, password).subscribe(
-			this.login.Auth("info@ridj-it.com", "i89qBsvBt5bmlg0").subscribe(
+			this.login.Auth("carlos.ruiz@tecnodas.com", "i89qBsvBt5bmlg0").subscribe(
 			  data => {
 			 
 				if(data.json().messageException == null){
@@ -89,7 +89,7 @@ export class LoginPage{
 	}
 
 	exploretrips(){
-	    this.navCtrl.setRoot(TripsGuestPage);	
+	    this.navCtrl.setRoot(Trips);	
 	}
 	
 }

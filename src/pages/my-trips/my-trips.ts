@@ -32,7 +32,10 @@ export class MyTrips {
       });    
       loading.present().then(() => {      
           this.storage.get('user').then((user) => {
-              this.myTrips.getMyTrips(JSON.parse(user).idUser).subscribe( (data) => {
+              this.myTrips.getMyTrips({
+                    id: JSON.parse(user).idUser,
+                    token: ""
+                }).subscribe( (data) => {
                     loading.dismiss().then( () => {
                           this.trips = data;
                     } );

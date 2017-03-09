@@ -15,6 +15,7 @@ import { MyTrips } from '../pages/my-trips/my-trips';
 import { Privacy } from '../pages/privacy/privacy';
 import { Settings } from '../pages/settings/settings';
 import { PostTripPage } from '../pages/post-trip/post-trip';
+import { UserValidatorServices } from '../providers/user.validator.services';
 
 @Component({
   templateUrl: 'app.html',
@@ -34,11 +35,10 @@ export class MyApp {
   user: any;
 
   constructor(platform: Platform, private storage: Storage, private toastCtrl: ToastController, private loading: LoadingController) {
-
     platform.ready().then(() => {
       StatusBar.styleDefault();
       Splashscreen.hide();
-      //this.checkLogin();
+      this.checkLogin();
     });
 
   }
