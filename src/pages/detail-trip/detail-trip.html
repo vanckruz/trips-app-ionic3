@@ -12,10 +12,7 @@
 	<div *ngIf="userProfiletrip != undefined || trip != null" class="bg-details">
 		<div *ngIf="trip.groupTrip">
 			<div class="imgGroup">
-				<img [src]="trip.groupTripInfo.pic">
-				<ion-row class="title">		
-					<ion-col with-100 ><b>Official ridj group trip</b></ion-col>
-				</ion-row>			
+				<img [src]="trip.groupTripInfo.pic">			
 			</div>
 
 			<ion-grid>
