@@ -5,7 +5,7 @@ page-profile {
 		background-repeat: no-repeat !important;
 		// background-size: 100% 40% !important;
 		background-size: cover !important;
-		background-atachment: fixed !important;
+		background-attachment: fixed !important;
 		transition: .5s all;
 
 		ion-card
@@ -39,7 +39,8 @@ page-profile {
 
 			ion-card-content{
 				padding-top: 6em !important;
-				background: #fff !important;
+				background: rgba(255,255,255,0.7) !important;
+				
 				h1,h2{
 					text-align: center;
 					font-weight: bold;
@@ -56,11 +57,11 @@ page-profile {
 			        flex-wrap: wrap;
 			        width: 100%;
 				    .itemRider{
-				        width: 28%;
+				        width: 30%;
 				        margin: 2%;
 				        img{
 				        	border-radius: 50%;
-				        	border: 1px solid #ccc;
+				        	border: 1px solid #03A9F5;
 				        }
 				        p{
 				        	text-align: center;

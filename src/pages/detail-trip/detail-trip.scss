@@ -14,8 +14,9 @@ page-detail-trip {
 		}
 		.title{
 			margin-top: 5px;
-			border-top: 1px solid rgba(0,0,0,0.2);
-			border-bottom: 1px solid rgba(0,0,0,0.2);
+			p{
+				font-size: 1.6em;
+			}
 		}
 	}
 	div.imgGroup{
@@ -30,11 +31,30 @@ page-detail-trip {
 			border-bottom: 1px solid rgba(0,0,0,0.2);
 		}
 	}
+	.tripDestination{
+		._75,._25{
+			float: left;
+		}
+		._75{
+			position: relative;
+			min-height: 100px;
+			//opcionales
+			background: rgba(3, 169, 245, 1);
+    		color: #FFF;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-wrap: wrap;
+			p{
+				font-size: 1.5em;
+				text-align: center;
+			}
+		}
+	}
 
-	.col2{
-		font-size:.7em;
-		margin-left: -150px;
-		background: #e9ebee;
+	.details{
+		padding: 0 .8em 0 .8em;
+		text-align: justify;
 	}
 
     .ridersList{
@@ -43,7 +63,7 @@ page-detail-trip {
         flex-wrap: wrap;
         width: 100%;
 	    .itemRider{
-	        width: 28%;
+	        width: 20%;
 	        margin: 2%;
 	        img{
 	        	border-radius: 50%;
