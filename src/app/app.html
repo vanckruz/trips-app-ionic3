@@ -4,10 +4,9 @@
       <ion-title>Options </ion-title>
     </ion-toolbar>
   </ion-header>
-
   <ion-content color="light">
-    <ion-list>
-      <button menuClose ion-item (click)="goToPostTrip()" *ngIf="user != null && user.isDriverRole">
+    <ion-list *ngIf="showPostTrip">
+      <button menuClose ion-item (click)="goToPostTrip()">
         <ion-icon name="document" item-left></ion-icon>
         Post your trip
       </button>

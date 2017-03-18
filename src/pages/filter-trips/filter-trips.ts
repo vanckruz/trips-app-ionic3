@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, group } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
 
 @Component({
@@ -7,35 +7,21 @@ import { NavController, NavParams, ViewController } from 'ionic-angular';
 })
 export class FilterTrips {
 
+	genderFlag: boolean = false;
+
 	filter: any = {
-		start: "",
-		end: "",
+		start: new Date().toISOString(),
+		end: new Date().toISOString(),
+		groupTrip: false,
 		gender: "anyone",
 		activities: []
 	};
+
 	activities: Array<any>;
 
 	constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) 
 	{
 		this.activities = navParams.get("params");		
-	}
-
-	ionViewDidLoad() 
-	{
-
-	}
-
-	activityList(item, state)
-	{
-		if(state._checked)
-		{
-			this.filter.activities.push(item.cod);
-		}
-		else
-		{
-			let index = this.filter.activities.indexOf(item.cod);
-			this.filter.activities.splice(index, 1);
-		}
 	}
 
 	dismiss(run=false) 

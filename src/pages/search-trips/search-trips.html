@@ -37,7 +37,7 @@
 	    <ion-item>
 	    	<ion-label stacked>Activities</ion-label>
 	    	<ion-select [(ngModel)]="search.activities" multiple="true">
-	    		<ion-option [value]="act.cod" *ngFor="let act of activities">
+	    		<ion-option [value]="act.code" *ngFor="let act of activities">
 	    			{{ act.name }}
 	    		</ion-option>
 	    	</ion-select>

@@ -1,61 +1,53 @@
 <ion-header>
-
-  <ion-navbar color="blue-light">
-    <ion-title>Filter trips listed</ion-title>
-    <ion-buttons start>
-      <button ion-button (click)="dismiss()">
-        <ion-icon name="close"></ion-icon>
-      </button>
-    </ion-buttons>       
-  </ion-navbar>
-
+    <ion-navbar color="blue-light">
+        <ion-title>Filter trips listed</ion-title>
+        <ion-buttons start>
+            <button ion-button (click)="dismiss()">
+                <ion-icon name="close"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
-
-
 <ion-content padding>
-
-		
     <ion-item>
-		<ion-label stacked>Start Date</ion-label>
-		<!-- <ion-input type="date" name="destination"></ion-input>	 -->
-		<ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="filter.start"></ion-datetime>    	
+        <ion-label stacked>Start Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="filter.start"></ion-datetime>    	
     </ion-item>
-   	<ion-item>
-		<ion-label stacked>End Date</ion-label>
-		<!-- <ion-input type="date" name="destination"></ion-input>    -->
-		<ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="filter.end "></ion-datetime> 	
-    </ion-item>
-
     <ion-item>
-		<b>Gender:</b> {{ filter.gender }}
+        <ion-label stacked>End Date</ion-label>
+        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="filter.end "></ion-datetime> 	
+        <ion-item-divider color="light"></ion-item-divider>
     </ion-item>
-
-	<ion-list radio-group [(ngModel)]="filter.gender">
-		<ion-item>
-		<ion-label>Male</ion-label>
-		<ion-radio checked="true" value="male" ></ion-radio>
-		</ion-item>
-
-		<ion-item>
-		<ion-label>Female</ion-label>
-		<ion-radio value="female" ></ion-radio>
-		</ion-item>
-
-		<ion-item>
-		<ion-label>Doesn't matter</ion-label>
-		<ion-radio value="anyone" checked></ion-radio>
-		</ion-item>  
-	</ion-list>
-
+    <ion-item stacked>
+        <ion-label>Group Trip</ion-label>
+        <ion-toggle [(ngModel)]="genderFlag"></ion-toggle>
+    </ion-item>
+    <ion-item-group *ngIf="!genderFlag">
+        <ion-item>
+            <b item-left>Gender</b> <span item-right>{{ filter.gender }}</span>
+        </ion-item>
+        <ion-list radio-group [(ngModel)]="filter.gender">
+        <ion-item>
+            <ion-label stacked>Male</ion-label>
+            <ion-radio checked="true" value="male" ></ion-radio>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Female</ion-label>
+            <ion-radio value="female" ></ion-radio>
+        </ion-item>
+        <ion-item>
+            <ion-label stacked>Doesn't matter</ion-label>
+            <ion-radio value="anyone" checked></ion-radio>
+        </ion-item>
+        </ion-list>
+    </ion-item-group>
     <ion-item>
-		<b>Activities:</b> <!-- {{ filter.activities }} -->
+        <ion-label stacked>Activities</ion-label>
+        <ion-select [(ngModel)]="filter.activities" multiple="true">
+        <ion-option [value]="act.code" *ngFor="let act of activities">
+        {{ act.name }}
+        </ion-option>
+        </ion-select>
     </ion-item>
-
-	<ion-item *ngFor="let act of activities">
-	  <ion-label>{{ act.name }}</ion-label>
-	  <ion-checkbox value="act.cod" (ionChange)="activityList(act, checkState)" #checkState></ion-checkbox>
-	</ion-item>
-
-	<button ion-button color="blue-light" full (click)="dismiss(true)"> Apply </button>
-
+    <button ion-button color="blue-light" full (click)="dismiss(true)"> Apply </button>
 </ion-content>

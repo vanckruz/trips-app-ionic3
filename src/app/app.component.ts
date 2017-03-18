@@ -25,7 +25,7 @@ export class MyApp {
   
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any;
   //rootPage:any = PostTripPage;
   introPage: any = IntroPage;
   loginPage: any = LoginPage;
@@ -33,6 +33,7 @@ export class MyApp {
   searchTrips: any = SearchTrips;
   footerPage: any = Footer;
   user: any;
+  showPostTrip: boolean = true;  
 
   constructor(platform: Platform, private storage: Storage, private toastCtrl: ToastController, private loading: LoadingController) {
     platform.ready().then(() => {
@@ -46,8 +47,10 @@ export class MyApp {
   checkLogin(){
     this.storage.get('user').then((user) => {
       this.rootPage = (user) ? Footer : LoginPage;
-      this.user = user;
-      console.log(user);
+        if(user){
+          this.user = JSON.parse(user);
+          this.showPostTrip = this.user.isDriverRole;
+        }
     });      
   }
 

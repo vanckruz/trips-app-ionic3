@@ -65,7 +65,6 @@ export class Trips {
 		loading.present().then(() => {      
 			this.tripServices.getTrips().subscribe( (data) => {
 				loading.dismiss().then( () => {
-					console.log(data);
 					this.trips = data;                    
 				} );
 			});
@@ -101,7 +100,6 @@ export class Trips {
 
 			if(data.run) 
 			{
-				console.log("data desde la vista disparadora. ",data);
 				let loading = this.loading.create({
 					content: 'Please wait...'
 				});    
@@ -150,24 +148,32 @@ export class Trips {
 
 		if(filterObject !== null){
 							
-			let filter = this.trips.filter(
-				item => {		
-					let startDateParam = Date.parse( filterObject.start !== "" ? filterObject.start : Date.now() );
-					let endDateParam = Date.parse( filterObject.start !== "" ? filterObject.start : Date.now() );
-					let startDate = new Date(startDateParam);
-					let endDate = new Date(endDateParam);
-
-					console.log("fecha" , startDate.toLocaleDateString() );
-					if(item.genderDriver.toLowerCase() === filterObject.gender.toLowerCase() 
-					){
-						return true;
-					}
-					return false;
-				});
+			let filter = this.trips.filter( item => this.comparator(item, filterObject) );
 
 			return this.trips = filter;				
 		}		
 	}	
+
+	comparator(trip, objVerificator): boolean
+	{
+		if( objVerificator.start == "" && objVerificator.end == "" && objVerificator.groupTrip == false && objVerificator.gender == "anyone" && objVerificator.activities.length == 0 )
+		{
+			return true;
+		}
+		else if(Date.parse(objVerificator.start) <= Date.parse(trip.pickupTimeShortFormat) &&
+				Date.parse(objVerificator.end) >= Date.parse(trip.dropOffTimeShortFormat) && 
+				objVerificator.groupTrip == trip.groupTrip
+		){
+			// (objVerificator.activities.length == 0 || objVerificator.activities.length > 0)
+			//objVerificator.gender != trip. &&
+
+			return true;
+		}	
+		else
+		{
+			return false;
+		}
+	}
 
 }
 

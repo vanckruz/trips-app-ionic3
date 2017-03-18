@@ -37,8 +37,8 @@ export class LoginPage{
 
 	bgRamdon():void
 	{
-			// setInterval( () => this.imgRandom = "assets/images/img_theming/"+this.ramdonTheming(), 5000);
-			this.imgRandom = "assets/images/img_theming/"+this.ramdonTheming();
+		// setInterval( () => this.imgRandom = "assets/images/img_theming/"+this.ramdonTheming(), 5000);
+		this.imgRandom = "assets/images/img_theming/"+this.ramdonTheming();
 	}	
 
 	toastMessage(message): any {
@@ -63,14 +63,13 @@ export class LoginPage{
 			 
 				if(data.json().messageException == null){
 				
-				      loading.dismiss().then( () => {
-				      		this.storage.set('user', JSON.stringify( data.json() ) ).then(() => {
-					         	console.log('User has been set:', data.json());
-					        	this.navCtrl.setRoot(Footer, {
-								    user: data.json()
-								});				
-					        });
-				      });
+					loading.dismiss().then( () => {
+							this.storage.set('user', JSON.stringify(data.json()) ).then( () => {
+					    	this.navCtrl.setRoot(Footer, {
+							    user: data.json()
+							});				
+					    });
+					});
 
 				}else{
 					this.toastMessage(data.json().messageException).present();

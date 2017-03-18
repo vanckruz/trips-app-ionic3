@@ -34,14 +34,15 @@
 </ion-header>
 
 <ion-content padding>
-	<ion-card *ngIf="trips == null || trips == undefined" padding>
-		<ion-title text-center> <b text-center>No trips found :( </b> </ion-title>
+
+	<ion-card *ngIf="trips != undefined && trips.length == 0" padding>
+		<ion-title text-center> <b text-center>No trips found </b> </ion-title>
 		<hr>
 		<button ion-button full (click)="refreshTrips()">Refresh</button>
 	</ion-card>
 
-	<div *ngIf="trips != null || trips != undefined" >
-		<ion-label *ngIf="trips != undefined && trips.length"> {{ trips.length }} trips found </ion-label>
+	<div *ngIf="trips != undefined && trips.length > 0">
+		<ion-label *ngIf="trips.length"> {{ trips.length }} trips found </ion-label>
 				
 		<ion-card *ngFor="let trip of trips">
 			
@@ -67,7 +68,7 @@
 							<ion-col width-50>
 								<ion-slides autoplay>
 									<ion-slide *ngFor="let slide of trip.activitiesTypes">
-									<img [src]="slide.urlPic">
+										<img [src]="slide.urlPic">
 									</ion-slide>
 								</ion-slides>
 							</ion-col>
