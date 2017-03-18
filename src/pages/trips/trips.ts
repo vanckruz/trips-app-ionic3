@@ -44,7 +44,6 @@ export class Trips {
 		public tripServices: TripServices,
 		public storage: Storage
 	){
-		//this.trips = this.tripServices.getTrips();
 		this.showBlockedItems();
 		this.getTrips();
 		this.getActivities();
@@ -85,7 +84,6 @@ export class Trips {
 
 	refreshTrips(){
 		this.getTrips();
-		//this.trips = this.tripServices.getTrips();
 	}
 
 	backTohome(){
@@ -163,19 +161,51 @@ export class Trips {
 		else if(Date.parse(objVerificator.start) <= Date.parse(trip.pickupTimeShortFormat) && Date.parse(objVerificator.end) >= Date.parse(trip.dropOffTimeShortFormat) ){
 
 			if(objVerificator.groupTrip) {
-				return true;
+				
+				if(objVerificator.activities.length > 0){
+					return this.activitiesEquals(objVerificator.activities, trip.activitiesTypes);
+				}else{
+					return true;					
+				}
 
-			}
+			}else if(objVerificator.gender != "anyone" && trip.singleTrip && objVerificator.gender.toUpperCase() == trip.singleTripInfo.driverInfo.gender.toUpperCase() ){
+
+				if(objVerificator.activities.length > 0){
+					return this.activitiesEquals(objVerificator.activities, trip.activitiesTypes);
+				}else{
+					return true;					
+				}
+
+			}else{
 				return false;
-			// objVerificator.groupTrip == trip.groupTrip
-			// (objVerificator.activities.length == 0 || objVerificator.activities.length > 0)
-			//objVerificator.gender != trip. &&
+			}
 
+			// (objVerificator.activities.length == 0 || objVerificator.activities.length > 0)
 		}	
 		else
 		{
 			return false;
 		}
+	}
+
+	activitiesEquals(activitiesUser, activitiesMatch){
+		let lengthArrUser = activitiesUser.length;
+		let lengthMatcher = 0;
+		let returnFlag = false;
+
+		activitiesMatch.map( (key, value) => {
+			console.log(key.code);
+			console.log(activitiesUser.indexOf(key.code));
+			if(activitiesUser.indexOf(key.code) != -1){
+				lengthMatcher++;
+			}
+		});
+
+		if(lengthArrUser == lengthMatcher){
+			returnFlag = true;
+		}
+
+		return returnFlag;
 	}
 
 }
