@@ -160,14 +160,17 @@ export class Trips {
 		{
 			return true;
 		}
-		else if(Date.parse(objVerificator.start) <= Date.parse(trip.pickupTimeShortFormat) &&
-				Date.parse(objVerificator.end) >= Date.parse(trip.dropOffTimeShortFormat) && 
-				objVerificator.groupTrip == trip.groupTrip
-		){
+		else if(Date.parse(objVerificator.start) <= Date.parse(trip.pickupTimeShortFormat) && Date.parse(objVerificator.end) >= Date.parse(trip.dropOffTimeShortFormat) ){
+
+			if(objVerificator.groupTrip) {
+				return true;
+
+			}
+				return false;
+			// objVerificator.groupTrip == trip.groupTrip
 			// (objVerificator.activities.length == 0 || objVerificator.activities.length > 0)
 			//objVerificator.gender != trip. &&
 
-			return true;
 		}	
 		else
 		{

@@ -14,7 +14,6 @@ import { DetailTrip } from '../pages/detail-trip/detail-trip';
 import { MyTrips } from '../pages/my-trips/my-trips';
 import { Privacy } from '../pages/privacy/privacy';
 import { Settings } from '../pages/settings/settings';
-import { TripsGuestPage } from '../pages/trips-guest/trips-guest';
 import { SignupPage } from '../pages/signup/signup';
 import { PostTripPage } from '../pages/post-trip/post-trip';
 import { NewCarPage } from '../pages/new-car/new-car';
@@ -34,7 +33,6 @@ import { UserInfoPage } from '../pages/user-info/user-info';
     MyTrips,
     Privacy,
     Settings,
-    TripsGuestPage,
     SignupPage,
     PostTripPage,
     NewCarPage,
@@ -57,7 +55,6 @@ import { UserInfoPage } from '../pages/user-info/user-info';
     MyTrips,
     Privacy,
     Settings,
-    TripsGuestPage,
     SignupPage,
     PostTripPage,
     NewCarPage,

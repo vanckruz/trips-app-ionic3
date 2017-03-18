@@ -20,9 +20,9 @@
     </ion-item>
     <ion-item stacked>
         <ion-label>Group Trip</ion-label>
-        <ion-toggle [(ngModel)]="genderFlag"></ion-toggle>
+        <ion-toggle [(ngModel)]="filter.groupTrip"></ion-toggle>
     </ion-item>
-    <ion-item-group *ngIf="!genderFlag">
+    <ion-item-group *ngIf="!filter.groupTrip">
         <ion-item>
             <b item-left>Gender</b> <span item-right>{{ filter.gender }}</span>
         </ion-item>

@@ -42,7 +42,10 @@
 	</ion-card>
 
 	<div *ngIf="trips != undefined && trips.length > 0">
-		<ion-label *ngIf="trips.length"> {{ trips.length }} trips found </ion-label>
+		<ion-item *ngIf="trips.length" no-lines>  
+			<span item-left>{{ trips.length }} trips found </span>
+			<button ion-button outline (click)="refreshTrips()" color="blue-light" item-right> <ion-icon name="refresh"></ion-icon></button> 
+		</ion-item>
 				
 		<ion-card *ngFor="let trip of trips">
 			

@@ -7,8 +7,6 @@ import { NavController, NavParams, ViewController } from 'ionic-angular';
 })
 export class FilterTrips {
 
-	genderFlag: boolean = false;
-
 	filter: any = {
 		start: new Date().toISOString(),
 		end: new Date().toISOString(),
