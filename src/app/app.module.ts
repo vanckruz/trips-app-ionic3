@@ -1,6 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { Storage } from '@ionic/storage';
+// import { Storage } from '@ionic/storage';
+import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
 import { IntroPage } from '../pages/intro/intro';
@@ -39,7 +40,8 @@ import { UserInfoPage } from '../pages/user-info/user-info';
     UserInfoPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -60,6 +62,6 @@ import { UserInfoPage } from '../pages/user-info/user-info';
     NewCarPage,
     UserInfoPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},Storage]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}
