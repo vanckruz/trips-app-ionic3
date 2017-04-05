@@ -15,6 +15,8 @@ import { MyTrips } from '../pages/my-trips/my-trips';
 import { Privacy } from '../pages/privacy/privacy';
 import { Settings } from '../pages/settings/settings';
 import { PostTripPage } from '../pages/post-trip/post-trip';
+import { AboutUsPage } from '../pages/about-us/about-us';
+import { ContactUsPage } from '../pages/contact-us/contact-us';
 import { UserValidatorServices } from '../providers/user.validator.services';
 
 @Component({
@@ -61,6 +63,14 @@ export class MyApp {
   goToPostTrip(){
    this.nav.push(PostTripPage); 
   }
+
+  goToAboutUs(){
+   this.nav.push(AboutUsPage); 
+  }  
+
+  goToContactUs(){
+   this.nav.push(ContactUsPage); 
+  }    
 
   logout(){
     this.storage.remove('user');
