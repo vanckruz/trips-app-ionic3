@@ -70,7 +70,11 @@ export class MyApp {
 
   goToContactUs(){
    this.nav.push(ContactUsPage); 
-  }    
+  }  
+
+  openSocial(network: string) {
+   window.open(network);
+  }      
 
   logout(){
     this.storage.remove('user');

@@ -15,7 +15,8 @@ import { DetailTrip } from '../pages/detail-trip/detail-trip';
 import { AcceptTermsPage } from '../pages/accept-terms/accept-terms';
 import { DetailsConfirmPage } from '../pages/details-confirm/details-confirm';
 import { MyTrips } from '../pages/my-trips/my-trips';
-import { Privacy } from '../pages/privacy/privacy';
+import { TermsOfUse } from '../pages/terms-of-use/terms-of-use';
+import { PrivacyPolicy } from '../pages/privacy-policy/privacy-policy';
 import { Settings } from '../pages/settings/settings';
 import { SignupPage } from '../pages/signup/signup';
 import { PostTripPage } from '../pages/post-trip/post-trip';
@@ -38,7 +39,8 @@ import { AboutUsPage } from '../pages/about-us/about-us';
     AcceptTermsPage,
     DetailsConfirmPage,
     MyTrips,
-    Privacy,
+    TermsOfUse,
+    PrivacyPolicy,
     Settings,
     SignupPage,
     PostTripPage,
@@ -65,7 +67,8 @@ import { AboutUsPage } from '../pages/about-us/about-us';
     AcceptTermsPage,
     DetailsConfirmPage,
     MyTrips,
-    Privacy,
+    TermsOfUse,
+    PrivacyPolicy,
     Settings,
     SignupPage,
     PostTripPage,

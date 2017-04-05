@@ -34,7 +34,7 @@ export var config = {
 			},
 			contact: function(){
 				// return `http://qa.ridj-it.com/app/api/mobile/V1/contact`
-				return `http://ridj-it.getsandbox.com/app/api/mobile/V1/contact`				
+				return `https://p.ridj-it.com/app/api/web/v1/sendMessage`				
 			}
 		}
 	}

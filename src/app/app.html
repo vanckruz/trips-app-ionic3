@@ -6,42 +6,56 @@
   </ion-header>
   <ion-content color="light">
     <div text-center padding class="back_theme">
-      <img src="assets/icon/RidjLogo.png" class="login-image"/>
+      <img src="assets/icon/RidjLogo.png"/>
     </div>
     <ion-list *ngIf="showPostTrip">
       <button menuClose ion-item (click)="goToPostTrip()">
-        <ion-icon name="document" item-left></ion-icon>
+        <ion-icon name="document" item-left color="primary"></ion-icon>
         Post your trip
       </button>
     </ion-list>
     
     <ion-list>
       <button menuClose ion-item (click)="goToIntro()">
-        <ion-icon name="play" item-left></ion-icon>
+        <ion-icon name="play" item-left color="primary"></ion-icon>
         How to work ?
       </button>
     </ion-list>  
 
     <ion-list>
       <button menuClose ion-item (click)="goToAboutUs()">
-        <ion-icon name="information-circle" item-left></ion-icon>
+        <ion-icon name="information-circle" item-left color="primary"></ion-icon>
         About us
       </button>      
     </ion-list>
 
     <ion-list>
       <button menuClose ion-item (click)="goToContactUs()">
-        <ion-icon name="contacts" item-left></ion-icon>
+        <ion-icon name="contacts" item-left color="primary"></ion-icon>
         Contact us
       </button>      
     </ion-list>
 
     <ion-list>
       <button menuClose ion-item (click)="logout()">
-        <ion-icon name="log-out" item-left></ion-icon>
+        <ion-icon name="log-out" item-left color="primary"></ion-icon>
         Log Out
       </button>
-    </ion-list>      
+    </ion-list>    
+
+    <div text-center>
+      <button ion-button icon-only clear medium color="primary" (click)="openSocial('https://www.instagram.com/ridj_it/')">
+        <ion-icon name="logo-facebook"></ion-icon>
+      </button>
+      <button ion-button icon-only clear medium color="primary" (click)="openSocial('https://twitter.com/ridj_it')">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </button>
+      <button ion-button icon-only clear medium color="primary" (click)="openSocial('https://www.facebook.com/ridjit/')">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </button>
+    </div>    
+
   </ion-content>
 </ion-menu>
+
 <ion-nav #mycontent [root]="rootPage"></ion-nav>

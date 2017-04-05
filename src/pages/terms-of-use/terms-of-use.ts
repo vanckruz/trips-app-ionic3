@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 @Component({
-  selector: 'page-privacy',
-  templateUrl: 'privacy.html'
+  selector: 'page-terms-of-use',
+  templateUrl: 'terms-of-use.html'
 })
-export class Privacy {
+export class TermsOfUse {
 
   constructor(public navCtrl: NavController){
 

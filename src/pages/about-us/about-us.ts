@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController, FabContainer } from 'ionic-angular';
 
 @Component({
   selector: 'page-about-us',
@@ -7,10 +7,21 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class AboutUsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public loadingCtrl: LoadingController
+  ){
+
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AboutUsPage');
   }
+
+  openSocial(network: string, fab: FabContainer) {
+   window.open(network);
+   fab.close();
+  }  
 
 }

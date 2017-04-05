@@ -15,12 +15,12 @@
 <ion-content padding>
 	
 	<ion-list>
-	  <ion-item (click)="goToPrivacy()">
-	    <ion-icon name="help" item-left></ion-icon>
+	  <ion-item (click)="goToTermsOfUse()">
+	    <ion-icon name="information-circle" item-left></ion-icon>
 	      Terms of use
 	  </ion-item> 
-	  <ion-item (click)="goToPrivacy()">
-	    <ion-icon name="help" item-left></ion-icon>
+	  <ion-item (click)="goToPrivacyPolicy()">
+	    <ion-icon name="information-circle" item-left></ion-icon>
 	      Privacy Policy
 	  </ion-item>      
 	</ion-list>
@@ -28,11 +28,16 @@
 
   <ion-card>
     <ion-card-header>
-      Questions about Privacy Policy
+      Questions about Policy & Terms
     </ion-card-header>
+    <img src="assets/images/question.png">
     <ion-card-content>
-      If you have any questions regarding this Privacy Policy, please contact us at <b>info@ridj-it.com</b>
+      <p>If you have any questions regarding this privacy policy and terms of use, please contact us at:</p>
     </ion-card-content>
+    <button ion-item (click)="sendEmail()">
+      <ion-icon name="mail" item-left></ion-icon>
+      info@ridj-it.com
+    </button>    
   </ion-card>
 
 </ion-content>

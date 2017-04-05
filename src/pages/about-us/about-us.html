@@ -7,12 +7,10 @@
 </ion-header>
 
 
-<ion-content padding>
-  <div class="header">
+<ion-content>
+  <img src="assets/images/banner.png">
 
-  </div>
-
-  <p>
+  <p padding>
     <span class="capital">Ridj-it</span> is a Boston-based carpool
     company devoted to getting 
     more people to explore the outdoors. Currently
@@ -24,19 +22,30 @@
     opportunity to get up and get out.
   </p>
   <img src="assets/images/top.jpg">
-  <p>
+  <p padding>
     Flexibility, communication, environmental
     stewardship, and freedom are our business goals and life pursuits. How can you leave the world a better place if you haven't
     seen it? So share the ride, share the outdoors!
   </p>
   <hr>
-  <p>
+  <p padding>
       <span class="capital">The founders</span> are avid hikers that realized there are limited transit connections to great mountains, beaches, and rivers to see New England's best nature, whether that entails providing access to these places or helping locals fund their trips to that money is never an obstacle.
   </p>
   <img src="assets/images/bottom.jpg">
-  <p>
+  <p padding>
       Their combined specialities and experiences in healthcare analytics, medical research, tutoring, and university and public education prompted Ridj-it's creation and mission: 
       Be outside so that you may feel great inside.
       Exercise, learn, and feel connected to a community beyond yourself.
   </p>  
+
+  <ion-fab bottom right #fab>
+    <button ion-fab><ion-icon name="share"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab color="blue-light" (click)="openSocial('https://www.instagram.com/ridj_it/', fab)"><ion-icon name="logo-instagram"></ion-icon></button>
+      <button ion-fab color="blue-light" (click)="openSocial('https://twitter.com/ridj_it', fab)"><ion-icon name="logo-twitter"></ion-icon></button>
+      <button ion-fab color="blue-light" (click)="openSocial('https://www.facebook.com/ridjit/', fab)"><ion-icon name="logo-facebook"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <div padding></div>  
 </ion-content>

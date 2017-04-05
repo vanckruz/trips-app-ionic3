@@ -7,6 +7,51 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <img src="assets/images/banner.png">
+ 
+  <div padding>
+    <h1>Contact Ridj-it</h1>
+    <p text-justify>
+      to ask how you can go skiing, biking, hiking, climbing and more from the Boston area! Send any ride request, suggestions, and questions using the form below.
+    </p>
 
+    <form [formGroup]="form" novalidate>
+      <ion-item>
+        <ion-label stacked>Name</ion-label>
+        <ion-input type="text" formControlName="name" #name></ion-input>
+      </ion-item>
+      <div padding *ngIf="form.controls.name.errors && form.controls.name.dirty">
+        <ion-label color="danger">Name is required</ion-label>
+      </div>
+
+      <ion-item>
+        <ion-label stacked>Email</ion-label>
+        <ion-input type="text" formControlName="email" #email></ion-input>
+      </ion-item>
+      <div padding *ngIf="form.controls.email.errors && form.controls.email.dirty">
+        <ion-label color="danger">Email is required</ion-label>
+      </div>
+
+      <ion-item>
+        <ion-label stacked>Subject</ion-label>
+        <ion-input type="text" formControlName="subject" #subject></ion-input>
+      </ion-item>
+      <div padding *ngIf="form.controls.subject.errors && form.controls.subject.dirty">
+        <ion-label color="danger">Subject is required</ion-label>
+      </div>
+
+      <ion-item>
+        <ion-label stacked color="primary">Enter your message</ion-label>
+        <ion-textarea rows="4" formControlName="message" #message></ion-textarea>
+      </ion-item>
+      <div padding *ngIf="form.controls.message.errors && form.controls.message.dirty">
+        <ion-label color="danger">The message is required</ion-label>
+      </div>
+
+      <hr>
+      <button ion-button full (click)="sendMessage(name.value, email.value, subject.value, message.value )">Send message</button>
+    </form>
+  </div>
+  
 </ion-content>

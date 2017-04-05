@@ -10,7 +10,8 @@ import { SearchTrips } from '../search-trips/search-trips';
 import { Trips } from '../trips/trips';
 import { DetailTrip } from '../detail-trip/detail-trip';
 import { MyTrips } from '../my-trips/my-trips';
-import { Privacy } from '../privacy/privacy';
+import { TermsOfUse } from '../terms-of-use/terms-of-use';
+import { PrivacyPolicy } from '../privacy-policy/privacy-policy';
 
 @Component({
   selector: 'page-settings',
@@ -27,24 +28,16 @@ export class Settings {
 
   }
 
-  goToPrivacy(){
-    this.navCtrl.push(Privacy);  	
+  goToTermsOfUse(){
+    this.navCtrl.push(TermsOfUse);  	
   }
 
-  popPrivacy(){
-    this.navCtrl.pop(Privacy);  	
+  goToPrivacyPolicy(){
+    this.navCtrl.push(PrivacyPolicy);  	
   }
 
-  logout(){
-    this.storage.remove('user');
-    let loading = this.loading.create({
-      content: 'Please wait...'
-    });    
-    loading.present().then(() => {      
-      loading.dismiss().then( () => {
-          this.navCtrl.setRoot(LoginPage);
-      } );
-    });
-  }  
+  sendEmail(){
+   window.open('mailto:info@ridj-it.com');
+  }
   
 }
