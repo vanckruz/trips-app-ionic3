@@ -1,12 +1,12 @@
 <ion-header>
 
    <ion-toolbar color="blue-light">  
-    <ion-title text-center>Settings</ion-title>
-      <ion-buttons end>
+    <ion-buttons start>
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons>
+    <ion-title text-center>Privacy</ion-title>
   </ion-toolbar>  
 
 </ion-header>
@@ -16,9 +16,23 @@
 	
 	<ion-list>
 	  <ion-item (click)="goToPrivacy()">
-	    <ion-icon name="lock" item-left></ion-icon>
+	    <ion-icon name="help" item-left></ion-icon>
 	      Terms of use
-	  </ion-item>  
+	  </ion-item> 
+	  <ion-item (click)="goToPrivacy()">
+	    <ion-icon name="help" item-left></ion-icon>
+	      Privacy Policy
+	  </ion-item>      
 	</ion-list>
+
+
+  <ion-card>
+    <ion-card-header>
+      Questions about Privacy Policy
+    </ion-card-header>
+    <ion-card-content>
+      If you have any questions regarding this Privacy Policy, please contact us at <b>info@ridj-it.com</b>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>

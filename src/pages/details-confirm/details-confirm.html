@@ -1,7 +1,7 @@
 <ion-header>
 
   <ion-navbar color="blue-light">
-    <ion-title>Detail Trip</ion-title>
+    <ion-title>Confirm Trip</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -142,13 +142,19 @@
 						{{ rider.firstName }} {{ rider.lastName }}
 			     	</p>
 				</div>
-			</div>	
+			</div>			
 		</div>
 	
+		<ion-item-divider color="light"></ion-item-divider>
+    <ion-item>
+      <ion-label stacked>Promo Code</ion-label>
+      <ion-input type="text" [(ngModel)]="promo" name="promo"></ion-input>
+    </ion-item>	
+		<ion-item-divider color="light"></ion-item-divider>				
 
 		<div text-center>
 			<button ion-button color="blue-light" (click)="letRide(trip)" *ngIf="show">
-				Let's ride!
+				Purchase and reserve seat
 			</button>	
 		</div>		
 	</div>

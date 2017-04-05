@@ -1,11 +1,19 @@
+<ion-header>
+
+  <ion-navbar color="blue-light" (click)="pop()">
+    <ion-title text-center>Skip Intro</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
 <ion-slides pager>
+  <ion-slide>
+    <div class="embed-container">
+      <iframe src="https://www.youtube.com/embed/tXhPqXkeZgw" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </ion-slide>
 	<ion-slide *ngFor="let slide of slides">
 		<img [src]="slide.image" class="slide-image"/>
 	</ion-slide>
 </ion-slides>
 
-<ion-footer no-border (click)="pop()">
-  <ion-toolbar color="blue-light">
-    <ion-title text-center>Skip Intro</ion-title>
-  </ion-toolbar>
-</ion-footer>

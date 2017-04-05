@@ -3,16 +3,16 @@ import { NavController, NavParams, LoadingController, ModalController } from 'io
 import { Storage } from '@ionic/storage';
 
 import { UserInfoPage } from '../user-info/user-info';
-import { AcceptTermsPage } from '../accept-terms/accept-terms';
 
 @Component({
-  selector: 'page-detail-trip',
-  templateUrl: 'detail-trip.html'
+  selector: 'page-details-confirm',
+  templateUrl: 'details-confirm.html'
 })
-export class DetailTrip {
+export class DetailsConfirmPage {
 
 	trip: any;
 	show: boolean;
+  promo: string;
 
 	constructor(
 		public navCtrl: NavController,
@@ -35,11 +35,7 @@ export class DetailTrip {
 	}
 
 	letRide(trip){
-	    this
-		.modalCtrl
-		.create(AcceptTermsPage,{trip: trip})
-	    .present();		
-		//console.log(trip);
+
 	}
 
 	goUserInfo(user){
@@ -47,4 +43,5 @@ export class DetailTrip {
 			user: user
 		});
 	}
+
 }

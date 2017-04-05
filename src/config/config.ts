@@ -31,6 +31,10 @@ export var config = {
 			singup: function(){
 				// return `http://qa.ridj-it.com/app/api/mobile/V1/signup`
 				return `http://ridj-it.getsandbox.com/app/api/mobile/V1/signup`
+			},
+			contact: function(){
+				// return `http://qa.ridj-it.com/app/api/mobile/V1/contact`
+				return `http://ridj-it.getsandbox.com/app/api/mobile/V1/contact`				
 			}
 		}
 	}

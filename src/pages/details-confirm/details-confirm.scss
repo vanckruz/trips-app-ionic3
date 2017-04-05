@@ -1,0 +1,76 @@
+page-details-confirm {
+	
+	.bg-details{
+		background: #f9f9f9;
+	}
+
+	div.imgDriver{
+		text-align:center;
+		img{
+			display:block;
+			border-radius: 50%;
+			width: 70%;
+			margin: auto;
+		}
+		.title{
+			margin-top: 5px;
+			p{
+				font-size: 1.6em;
+			}
+		}
+	}
+	div.imgGroup{
+		text-align:center;
+		img{
+			display:block;
+			margin: auto;
+		}
+		.title{
+			margin-top: 5px;
+			border-top: 1px solid rgba(0,0,0,0.2);
+			border-bottom: 1px solid rgba(0,0,0,0.2);
+		}
+	}
+	.tripDestination{
+		._75,._25{
+			float: left;
+		}
+		._75{
+			position: relative;
+			min-height: 100px;
+			//opcionales
+			background: rgba(3, 169, 245, 1);
+    		color: #FFF;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-wrap: wrap;
+			p{
+				font-size: 1.5em;
+				text-align: center;
+			}
+		}
+	}
+
+	.details{
+		padding: 0 .8em 0 .8em;
+		text-align: justify;
+	}
+
+    .ridersList{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+	    .itemRider{
+	        width: 20%;
+	        margin: 2%;
+	        img{
+	        	border-radius: 50%;
+	        }
+	        p{
+	        	text-align: center;
+	        }
+	    }	
+    } 
+}

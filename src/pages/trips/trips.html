@@ -1,18 +1,20 @@
 <ion-header *ngIf="user !== null || user !== undefined">
   <ion-toolbar color="blue-light">  
     <ion-buttons left>
-    	<button ion-button (click)="showSearchModal($event)">
-      		<ion-icon name="search"></ion-icon>
-   		</button>
-    	<button ion-button (click)="showFiltersModal($event)">
-       		<ion-icon name="options"></ion-icon>
-   		</button>
-    </ion-buttons>
-    <ion-title text-center>Trips</ion-title>
-    <ion-buttons right>
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
+    </ion-buttons>
+
+    <ion-title text-center>Trips</ion-title>
+		
+    <ion-buttons right>
+    	<button ion-button (click)="showFiltersModal($event)">
+       		<ion-icon name="options"></ion-icon>
+   		</button>
+    	<button ion-button (click)="showSearchModal($event)">
+      		<ion-icon name="search"></ion-icon>
+   		</button>
     </ion-buttons>
   </ion-toolbar>  
 </ion-header>
