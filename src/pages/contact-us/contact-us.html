@@ -27,7 +27,7 @@
 
       <ion-item>
         <ion-label stacked>Email</ion-label>
-        <ion-input type="text" formControlName="email" #email></ion-input>
+        <ion-input type="text" formControlName="email" #email [value]="userEmail"></ion-input>
       </ion-item>
       <div padding *ngIf="form.controls.email.errors && form.controls.email.dirty">
         <ion-label color="danger">Email is required</ion-label>

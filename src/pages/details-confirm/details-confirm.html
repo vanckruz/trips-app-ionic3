@@ -53,10 +53,54 @@
 				<ion-item-divider color="light"></ion-item-divider>
 				<ion-item><span item-left>Price as driver</span><span item-right>{{ trip.groupTripInfo.priceAsRider | currency }}</span></ion-item>
 				<ion-item><span item-left>Price as rider</span><span item-right>{{ trip.groupTripInfo.priceAsDriver | currency }}</span></ion-item>				
-				<ion-item *ngFor="let cost of trip.groupTripInfo.pricesGroupTrip">
-					<span item-left>{{ cost.field }}</span><span item-right>{{ cost.priceAmount | currency }}</span>
-				</ion-item>
+				<ion-item-divider color="light"></ion-item-divider>
 			</ion-item-group>
+
+			<div class="options-driver" *ngIf="show && user.isDriverRole">
+				<ion-item-group>
+					<ion-list radio-group [(ngModel)]="parameters.tripType">
+						<ion-item>
+							<ion-label stacked>Rider</ion-label>
+							<ion-radio checked="true" value="rider" ></ion-radio>
+						</ion-item>
+						<ion-item>
+							<ion-label stacked>Driver</ion-label>
+							<ion-radio value="driver" ></ion-radio>
+						</ion-item>
+					</ion-list>
+				</ion-item-group>	
+
+				<div *ngIf="parameters.tripType == 'driver'">
+					<ion-item-group>
+						<!--<ion-select [(ngModel)]="parameters.extraCost" multiple="true">
+							<ion-option color="blue-light" value="cost.priceAmount" *ngFor="let cost of trip.groupTripInfo.pricesGroupTrip">{{ cost.field }} - {{ cost.priceAmount | currency }}</ion-option>
+						</ion-select>-->
+						<ion-item *ngFor="let cost of trip.groupTripInfo.pricesGroupTrip">
+							<ion-label>{{ cost.field }} - {{ cost.priceAmount | currency }}</ion-label>
+							<ion-checkbox color="blue-light" #check (click)="sumExtraprice(cost.priceAmount)"></ion-checkbox>
+						</ion-item>				
+					</ion-item-group>				
+
+					<ion-item>
+						<ion-label stacked>Cars</ion-label>
+						<ion-select [(ngModel)]="parameters.cars">
+							<ion-option [value]="car.id" *ngFor="let car of user.cars">
+								{{ car.type }}
+							</ion-option>
+						</ion-select>
+					</ion-item>
+
+					<button ion-button full color="blue-light" (click)="newCar()">
+						New Car
+					</button>				
+
+					<ion-item-divider color="light"></ion-item-divider>
+					<ion-item>
+						<ion-label item-left>Total</ion-label>
+						<ion-label item-right>{{ trip.priceAsDriver }}</ion-label>
+					</ion-item>
+				</div>					
+			</div><!--Options driver-->
 
 			<div class="ridersList">
 				<ion-item-divider color="light"></ion-item-divider>				
@@ -72,6 +116,7 @@
 			     	</p>
 				</div>
 			</div>  
+
 		</div>
 
 <!--*************************************************************************************-->
@@ -146,16 +191,17 @@
 		</div>
 	
 		<ion-item-divider color="light"></ion-item-divider>
-    <ion-item>
-      <ion-label stacked>Promo Code</ion-label>
-      <ion-input type="text" [(ngModel)]="promo" name="promo"></ion-input>
-    </ion-item>	
+		<ion-item>
+			<ion-label stacked>Promo Code</ion-label>
+			<ion-input type="text" [(ngModel)]="promo" name="promo"></ion-input>
+		</ion-item>	
 		<ion-item-divider color="light"></ion-item-divider>				
 
 		<div text-center>
-			<button ion-button color="blue-light" (click)="letRide(trip)" *ngIf="show">
+			<button ion-button color="blue-light" (click)="letTrip(trip)" *ngIf="show">
 				Purchase and reserve seat
-			</button>	
+			</button>				
 		</div>		
+		<ion-item-divider color="light"></ion-item-divider>				
 	</div>
 </ion-content>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ContactServices } from '../../providers/contact.services';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'page-contact-us',
@@ -11,14 +12,21 @@ import { ContactServices } from '../../providers/contact.services';
 export class ContactUsPage {
 
   form: FormGroup;
+  userEmail: any;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public fb: FormBuilder,
     public contact: ContactServices,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    public storage: Storage
   ){
+
+    this.storage.get('user').then((user) => {
+      this.userEmail = JSON.parse(user).emailUser;    
+    });
+
     this.form = fb.group({
       name: ['', Validators.required],
       email: ['', Validators.compose([
@@ -27,6 +35,7 @@ export class ContactUsPage {
       subject: ['', Validators.required],
       message: ['', Validators.required]
     });
+
   }
 
 	toastMessage(message): any {
