@@ -77,10 +77,9 @@
 						</ion-select>-->
 						<ion-item *ngFor="let cost of trip.groupTripInfo.pricesGroupTrip">
 							<ion-label>{{ cost.field }} - {{ cost.priceAmount | currency }}</ion-label>
-							<ion-checkbox color="blue-light" #check (click)="sumExtraprice(cost.priceAmount)"></ion-checkbox>
+							<ion-checkbox color="blue-light" #check (click)="sumExtraprice(cost)"></ion-checkbox>
 						</ion-item>				
 					</ion-item-group>				
-
 					<ion-item>
 						<ion-label stacked>Cars</ion-label>
 						<ion-select [(ngModel)]="parameters.cars">
@@ -97,7 +96,7 @@
 					<ion-item-divider color="light"></ion-item-divider>
 					<ion-item>
 						<ion-label item-left>Total</ion-label>
-						<ion-label item-right>{{ trip.priceAsDriver }}</ion-label>
+						<ion-label item-right>{{ trip.groupTripInfo.priceAsDriver + parameters.total }}</ion-label>
 					</ion-item>
 				</div>					
 			</div><!--Options driver-->
