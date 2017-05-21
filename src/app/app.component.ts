@@ -1,8 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 import { Platform, Nav, LoadingController, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-
-import { StatusBar, Splashscreen } from 'ionic-native';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+//import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { IntroPage } from '../pages/intro/intro';
 import { LoginPage } from '../pages/login/login';
@@ -37,12 +38,20 @@ export class MyApp {
   user: any;
   showPostTrip: boolean = true;  
 
-  constructor(platform: Platform, private storage: Storage, private toastCtrl: ToastController, private loading: LoadingController) {
-    platform.ready().then(() => {
-      StatusBar.styleDefault();
-      Splashscreen.hide();
-      this.checkLogin();
-    });
+  constructor(
+    platform: Platform, 
+    private storage: Storage,
+    private toastCtrl: ToastController, 
+    private loading: LoadingController,
+    private statusBar: StatusBar,
+    private splashscreen: SplashScreen
+    ){
+   
+      platform.ready().then(() => {
+        this.statusBar.styleDefault();
+        this.splashscreen.hide();
+        this.checkLogin();
+      });
 
   }
 

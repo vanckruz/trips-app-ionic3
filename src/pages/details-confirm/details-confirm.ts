@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, LoadingController, ModalController } from 'ionic-angular';
 import { PayPal, PayPalPayment, PayPalConfiguration } from '@ionic-native/paypal';
+//import { PayPal, PayPalPayment, PayPalConfiguration } from 'ionic-native';
 import { Storage } from '@ionic/storage';
 
 import { NewCarPage } from '../new-car/new-car';
@@ -9,7 +10,6 @@ import { UserInfoPage } from '../user-info/user-info';
 @Component({
   selector: 'page-details-confirm',
   templateUrl: 'details-confirm.html',
-	providers: [PayPal]
 })
 export class DetailsConfirmPage {
 
@@ -40,6 +40,7 @@ export class DetailsConfirmPage {
 			this.show = (user) ? true : false;   
 			this.user = JSON.parse(user); 
 		});		
+		console.log(PayPal);
 	}
 
 	newCar(){
@@ -75,9 +76,10 @@ export class DetailsConfirmPage {
 	}
 
 	letTrip(trip){
+		console.log(trip);
 		this.payPal.init({
-			PayPalEnvironmentProduction: "access_token$sandbox$v3s48nj697rqm75b$5411d39b4f3031dca319b2a28299f245",
-			PayPalEnvironmentSandbox: "access_token$sandbox$v3s48nj697rqm75b$5411d39b4f3031dca319b2a28299f245"
+			PayPalEnvironmentProduction: "",
+			PayPalEnvironmentSandbox: "Ac24nJXpgOZjeLy6GAC81D0eCcDnznQRgjo0hr7J1yJ-bKqUFobeVK7QPWMgvT7ALE34aHN2KmbUgrBa"
 		}).then(() => {
 			this.payPal.prepareToRender('PayPalEnvironmentSandbox', new PayPalConfiguration({
 

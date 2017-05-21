@@ -1,7 +1,12 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 // import { Storage } from '@ionic/storage';
 import { IonicStorageModule } from '@ionic/storage';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { PayPal } from '@ionic-native/paypal';
 
 import { MyApp } from './app.component';
 import { IntroPage } from '../pages/intro/intro';
@@ -51,7 +56,9 @@ import { AboutUsPage } from '../pages/about-us/about-us';
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    BrowserModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -77,6 +84,11 @@ import { AboutUsPage } from '../pages/about-us/about-us';
     ContactUsPage,
     AboutUsPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [
+      {provide: ErrorHandler, useClass: IonicErrorHandler},
+      StatusBar,
+      SplashScreen,
+      PayPal
+    ]
 })
 export class AppModule {}

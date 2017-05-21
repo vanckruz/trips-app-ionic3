@@ -21,7 +21,7 @@ export var config = {
 			},
 			search: function(){
 				// return `http://qa.ridj-it.com/app/search`
-				return `http://ridj-it.getsandbox.com/app/search`
+				return `http://ridj-it.getsandbox.com/app/api/mobile/V1/trips-search`
 			},
 			/*Post Routes*/
 			login: function(){
