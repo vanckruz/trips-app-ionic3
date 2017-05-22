@@ -35,6 +35,18 @@ export var config = {
 			contact: function(){
 				// return `http://qa.ridj-it.com/app/api/mobile/V1/contact`
 				return `https://p.ridj-it.com/app/api/web/v1/sendMessage`				
+			},
+			preorder: function(){
+				// return `http://qa.ridj-it.com/app/api/mobile/V1/contact`
+				return `https://p.ridj-it.com/app/api/web/v1/pre-order`				
+			},
+			ordersuccess: function(){
+				// return `http://qa.ridj-it.com/app/api/mobile/V1/contact`
+				return `https://p.ridj-it.com/app/api/web/v1/order-success`				
+			},
+			ordererror: function(){
+				// return `http://qa.ridj-it.com/app/api/mobile/V1/contact`
+				return `https://p.ridj-it.com/app/api/web/v1/order-error`				
 			}
 		}
 	}

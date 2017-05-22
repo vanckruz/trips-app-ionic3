@@ -70,7 +70,7 @@
 					</ion-list>
 				</ion-item-group>	
 
-				<div *ngIf="parameters.tripType == 'driver'">
+				<div *ngIf="parameters.tripType == 'driver' ">
 					<ion-item-group>
 						<!--<ion-select [(ngModel)]="parameters.extraCost" multiple="true">
 							<ion-option color="blue-light" value="cost.priceAmount" *ngFor="let cost of trip.groupTripInfo.pricesGroupTrip">{{ cost.field }} - {{ cost.priceAmount | currency }}</ion-option>
@@ -192,12 +192,12 @@
 		<ion-item-divider color="light"></ion-item-divider>
 		<ion-item>
 			<ion-label stacked>Promo Code</ion-label>
-			<ion-input type="text" [(ngModel)]="promo" name="promo"></ion-input>
+			<ion-input type="text" #promoCode name="promo"></ion-input>
 		</ion-item>	
 		<ion-item-divider color="light"></ion-item-divider>				
 
 		<div text-center>
-			<button ion-button color="blue-light" (click)="letTrip(trip)" *ngIf="show">
+			<button ion-button color="blue-light" (click)="letTrip(trip, promoCode.value)" *ngIf="show">
 				Purchase and reserve seat
 			</button>				
 		</div>		
